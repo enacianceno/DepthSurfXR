@@ -430,7 +430,11 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         if (extra != null && extra.startsWith("http")) startUrl = extra;
         else if (data != null && String.valueOf(data).startsWith("http")) startUrl = String.valueOf(data);
         urlField.setText(startUrl);
-        if ("gumtest".equals(extra)) {
+        if ("rectest".equals(extra)) {
+            uiHandler.postDelayed(() -> new StreamRecorder(rootView).startAsync(
+                    new java.io.File(getExternalFilesDir(null), "rectest.mp4")), 4000);
+            webView.loadUrl(startUrl);
+        } else if ("gumtest".equals(extra)) {
             webView.loadDataWithBaseURL("https://example.com/",
                     "<html><body><script>"
                     + "console.log('GUMTEST start');"
