@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="moonlight-xr-logo-transparent.png" height="200" alt="moonlight-xr-logo"><br>
+  <img src="depthsurf-logo.jpg" height="220" alt="DepthSurfXR logo"><br>
   <a href="https://ko-fi.com/moonlightxr">
     <img src="https://img.shields.io/badge/ko--fi-support-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" height="35" alt="Ko-fi">
   </a>
@@ -9,7 +9,17 @@
   </a>
 </p>
 
-# Moonlight XR
+# DepthSurfXR
+
+Navegador 3D para Meta Quest 3S: paginas web y video con profundidad estereoscopica generada en el visor (ZipDepth), sobre la infraestructura OpenXR de Moonlight XR.
+
+**Fork de Moonlight XR** — Creditos y licencia GPLv3 abajo y en LICENSE.txt. Proyecto original: Moonlight XR de Gilleece.
+
+APK experimental (Quest 3S): seccion Releases de este repo, `v0.1-tiktok-experimental`.
+
+---
+
+# Moonlight XR (proyecto base)
 
 A fork of [Moonlight for Android](https://github.com/moonlight-stream/moonlight-android) that
 runs as a native OpenXR application and shows the game stream in stereoscopic 3D on a headset.
