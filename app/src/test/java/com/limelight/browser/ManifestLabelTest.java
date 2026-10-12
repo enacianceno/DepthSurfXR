@@ -16,7 +16,7 @@ import org.junit.Test;
 // The Quest launcher shows the application label. It is not in the main
 // manifest: the nonRoot flavor manifest points it at @string/app_label,
 // which app/build.gradle generates per build type. All three must agree
-// on DepthsurfXR or the app shows up as Moonlight XR.
+// on DepthSurfXR or the app shows up as Moonlight XR.
 public class ManifestLabelTest {
     private static String read(String... candidates) throws Exception {
         for (String candidate : candidates) {
@@ -34,10 +34,10 @@ public class ManifestLabelTest {
     }
 
     @Test
-    public void launcherActivityLabelIsDepthsurfXR() throws Exception {
-        assertTrue("BrowserActivity must carry android:label=\"DepthsurfXR\"",
+    public void launcherActivityLabelIsDepthSurfXR() throws Exception {
+        assertTrue("BrowserActivity must carry android:label=\"DepthSurfXR\"",
                 Pattern.compile("android:name=\"\\.browser\\.BrowserActivity\"\\s+"
-                        + "android:label=\"DepthsurfXR\"").matcher(mainManifest()).find());
+                        + "android:label=\"DepthSurfXR\"").matcher(mainManifest()).find());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class ManifestLabelTest {
     }
 
     @Test
-    public void gradleAppLabelIsDepthsurfXR() throws Exception {
+    public void gradleAppLabelIsDepthSurfXR() throws Exception {
         String gradle = read("build.gradle", "app/build.gradle");
         Matcher m = Pattern.compile(
                 "resValue\\s+\"string\",\\s*\"app_label\",\\s*\"([^\"]+)\"")
@@ -57,8 +57,8 @@ public class ManifestLabelTest {
         int count = 0;
         while (m.find()) {
             count++;
-            assertEquals("app_label resValue #" + count + " must be DepthsurfXR",
-                    "DepthsurfXR", m.group(1));
+            assertEquals("app_label resValue #" + count + " must be DepthSurfXR",
+                    "DepthSurfXR", m.group(1));
         }
         assertEquals("expected debug + release app_label resValues", 2, count);
     }

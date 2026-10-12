@@ -252,8 +252,8 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
-            resValue "string", "app_label", "DepthsurfXR"
-            resValue "string", "app_label_root", "DepthsurfXR (Root Debug)"
+            resValue "string", "app_label", "DepthSurfXR"
+            resValue "string", "app_label_root", "DepthSurfXR (Root Debug)"
 
             // The renderer's setprop tuning knobs and frame capture live in
             // debug builds only
@@ -270,8 +270,8 @@ android {
         release {
             // This fork ships under its own applicationId, so the unofficial
             // suffix upstream asks forks to keep is no longer needed.
-            resValue "string", "app_label", "DepthsurfXR"
-            resValue "string", "app_label_root", "DepthsurfXR (Root)"
+            resValue "string", "app_label", "DepthSurfXR"
+            resValue "string", "app_label_root", "DepthSurfXR (Root)"
 
             if (canSign) {
                 signingConfig signingConfigs.release
