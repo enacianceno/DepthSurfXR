@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shortcut strings -->
+    <string name="scut_deleted_pc">PC eliminato</string>
+    <string name="scut_not_paired">PC non accoppiato</string>
+    <!-- Help strings -->
+    <string name="help_loading_title">Visualizza assistenza</string>
+    <string name="help_loading_msg">Caricamento pagina di assistenza…</string>
+    <!-- PC view menu entries -->
+    <string name="pcview_menu_app_list">Vedi Tutte le Applicazioni</string>
+    <string name="pcview_menu_pair_pc">Accoppia PC</string>
+    <string name="pcview_menu_unpair_pc">Disaccoppia PC</string>
+    <string name="pcview_menu_send_wol">Invia richiesta Wake-On-LAN</string>
+    <string name="pcview_menu_delete_pc">Rimuovi PC</string>
+    <!-- Pair messages -->
+    <string name="pairing">Accoppiamento…</string>
+    <string name="pair_pc_offline">Il PC è offline</string>
+    <string name="pair_pc_ingame">PC con applicazione avviata. Devi chiudere l\'applicazione prima dell\'accoppiamento.</string>
+    <string name="pair_pairing_title">Accoppiamento</string>
+    <string name="pair_pairing_msg">Inserisci il seguente PIN sul PC:</string>
+    <string name="pair_incorrect_pin">PIN non corretto</string>
+    <string name="pair_fail">Accoppiamento fallito</string>
+    <string name="pair_already_in_progress">Accoppiamento già in corso</string>
+    <!-- WOL messages -->
+    <string name="wol_pc_online">PC già avviato</string>
+    <string name="wol_no_mac">Impossibile risvegliare il PC perché non è stato salvato nessun indirizzo MAC</string>
+    <string name="wol_waking_pc">Risveglio PC…</string>
+    <string name="wol_waking_msg">Il PC potrebbe impiegare qualche secondo per risvegliarsi.
+        Se non succede niente, assicurati che l\'opzione Wake-On-LAN sia configurata correttamente.
+    </string>
+    <string name="wol_fail">Invio pacchetti Wake-On-LAN fallito</string>
+    <!-- Unpair messages -->
+    <string name="unpairing">Disaccoppiamento…</string>
+    <string name="unpair_success">Disaccoppiato con successo</string>
+    <string name="unpair_fail">Disaccoppiamento fallito</string>
+    <string name="unpair_error">Il dispositivo non è stato accoppiato</string>
+    <!-- Errors -->
+    <string name="error_pc_offline">PC offline</string>
+    <string name="error_manager_not_running">Il servizio ComputerManager non è avviato. Attendi qualche secondo o riavvia l\'applicazione.</string>
+    <string name="error_unknown_host">Risoluzione nome host fallita</string>
+    <string name="error_404">GFE ha ritornato un errore HTTP 404 error. Assicurati che il PC stia usando una GPU supportata.
+        Usare un software di desktop remoto può causare questo errore. Prova a riavviare il PC o a reinstallare GFE.
+    </string>
+    <string name="title_decoding_error">Il decodificatore video ha smesso di funzionare</string>
+    <string name="message_decoding_error">Moonlight ha smesso di funzionare per colpa di un problema al decodificatore video di questo dispositivo. Prova a modificare le impostazioni di stream se il problema persiste.</string>
+    <string name="title_decoding_reset">Ripristino impostazioni video</string>
+    <string name="message_decoding_reset">Il decodificatore video del dispositivo continua a funzionare in modo anomalo con le impostazioni di streaming selezionate. Le impostazioni di streaming sono state ripristinate ai valori predefiniti.</string>
+    <string name="error_usb_prohibited">L\'accesso USB è vietato dall\'amministratore del dispositivo. Verifica le impostazioni Knox o MDM.</string>
+    <!-- Start application messages -->
+    <string name="conn_establishing_title">Connessione in corso</string>
+    <string name="conn_establishing_msg">Avvio connessione</string>
+    <string name="conn_metered">Attenzione: la rete attiva prevede costi aggiuntivi in base all\'utilizzo!</string>
+    <string name="conn_client_latency">Latenza decodifica fotogrammi media:</string>
+    <string name="conn_client_latency_hw">latenza decodificatore hardware:</string>
+    <string name="conn_hardware_latency">Latenza decodificatore hardware media:</string>
+    <string name="conn_starting">Avvio in corso</string>
+    <string name="conn_error_title">Errore connessione</string>
+    <string name="conn_error_msg">Avvio fallito</string>
+    <string name="conn_terminated_title">Connessione interrotta</string>
+    <string name="conn_terminated_msg">La connessione è stata interrotta.</string>
+    <!-- General strings -->
+    <string name="ip_hint">Indirizzo IP del PC</string>
+    <string name="searching_pc">Ricerca di PC nella rete locale…
+\n
+\n Assicurati che Sunshine sia avviato o che GameStream sia abilitato nelle impostazioni SHIELD di GeForce Experience.</string>
+    <string name="yes">Sì</string>
+    <string name="no">No</string>
+    <string name="lost_connection">Connessione con il PC persa</string>
+    <string name="help">Assistenza</string>
+    <!-- AppList activity -->
+    <string name="applist_connect_msg">Connessione al PC in corso…</string>
+    <string name="applist_menu_resume">Riprendi sessione</string>
+    <string name="applist_menu_quit">Chiudi sessione</string>
+    <string name="applist_menu_quit_and_start">Chiudi sessione corrente e avvia</string>
+    <string name="applist_menu_cancel">Annulla</string>
+    <string name="applist_refresh_title">Lista applicazioni</string>
+    <string name="applist_refresh_msg">Aggiornamento lista in corso…</string>
+    <string name="applist_refresh_error_title">Errore</string>
+    <string name="applist_refresh_error_msg">Ricezione lista applicazioni fallita</string>
+    <string name="applist_quit_app">Chiusura in corso</string>
+    <string name="applist_quit_success">Sessione chiusa con successo</string>
+    <string name="applist_quit_fail">Chiusura sessione fallita</string>
+    <string name="applist_quit_confirmation">Sei sicuro di voler chiudere l\'applicazione avviata? Tutti i dati non salvati saranno persi.</string>
+    <!-- Add computer manually activity -->
+    <string name="title_add_pc">Aggiungi PC manualmente</string>
+    <string name="msg_add_pc">Connessione al PC in corso…</string>
+    <string name="addpc_fail">Impossibile connettersi al PC specificato. Assicurati che le porte nel firewall del PC siano configurate correttamente.</string>
+    <string name="addpc_success">PC aggiunto con successo</string>
+    <string name="addpc_unknown_host">Impossibile risovere l\'indirizzo del PC. Assicurati di aver scritto correttamente l\'indirizzo.</string>
+    <string name="addpc_enter_ip">Devi inserire un indirizzo IP</string>
+    <string name="addpc_wrong_sitelocal">Quell\'indirizzo non sembra corretto. È necessario utilizzare l\'indirizzo IP pubblico del router per lo streaming su Internet.</string>
+    <!-- Preferences -->
+    <string name="category_basic_settings">Impostazioni generali</string>
+    <string name="title_resolution_list">Risoluzione video</string>
+    <string name="summary_resolution_list">Aumentare per migliorare la nitidezza dell\'immagine. Diminuire per aumentare le prestazioni su dispositivi di fascia più bassa e reti più lente.</string>
+    <string name="title_seekbar_bitrate">Velocità di trasmissione video</string>
+    <string name="summary_seekbar_bitrate">Aumentare per migliorare la qualità dell\'immagine. Diminuire per aumentare le prestazioni su reti più lente.</string>
+    <string name="title_checkbox_stretch_video">Forza video a schermo intero</string>
+    <string name="title_checkbox_disable_warnings">Disabilita messaggi di warning</string>
+    <string name="summary_checkbox_disable_warnings">Disabilita i messaggi di warning sullo schermo durante lo streaming</string>
+    <string name="title_checkbox_enable_pip">Abilita modalità spettatore Picture-in-Picture</string>
+    <string name="summary_checkbox_enable_pip">Permette di osservare (ma non di controllare) la stream in multitasking</string>
+    <string name="category_audio_settings">Impostazioni audio</string>
+    <string name="title_checkbox_multi_controller">Supporto a più controller</string>
+    <string name="summary_checkbox_multi_controller">Quando disabilitato, tutti i controller appaiono come uno solo</string>
+    <string name="title_seekbar_deadzone">Regola i punti morti degli stick analogici</string>
+    <string name="suffix_seekbar_deadzone">%</string>
+    <string name="title_checkbox_xb1_driver">Driver del controller Xbox 360/One</string>
+    <string name="summary_checkbox_xb1_driver">Abilita un driver USB integrato per dispositivi senza supporto al controller Xbox nativo</string>
+    <string name="title_checkbox_usb_bind_all">Sovrascrivi il supporto ai controller su Android</string>
+    <string name="summary_checkbox_usb_bind_all">Forza i driver USB di Moonlight di assumere il controllo su tutti i controller Xbox supportati</string>
+    <string name="title_checkbox_mouse_emulation">Emulazione del mouse tramite controller</string>
+    <string name="summary_checkbox_mouse_emulation">Tenendo premuto il pulsante Start, il controller passerà alla modalità mouse</string>
+    <string name="category_on_screen_controls_settings">Impostazioni dei controlli a schermo</string>
+    <string name="title_checkbox_show_onscreen_controls">Mostra controlli a schermo</string>
+    <string name="summary_checkbox_show_onscreen_controls">Mostra l\'overlay virtuale del controller su schermo</string>
+    <string name="title_only_l3r3">Mostra solo L3 e R3</string>
+    <string name="summary_only_l3r3">Nasconde tutti i pulsanti virtuali tranne L3 e R3</string>
+    <string name="title_reset_osc">Ripristina il layout personalizzato dei controlli a schermo</string>
+    <string name="summary_reset_osc">Ripristina tutti i controlli a schermo nelle loro posizioni e dimensioni predefinite</string>
+    <string name="dialog_title_reset_osc">Ripristino del layout</string>
+    <string name="dialog_text_reset_osc">Sei sicuro di voler ripristinare ai valori predefiniti i layout dei controlli a schermo?</string>
+    <string name="toast_reset_osc_success">I controlli a schermo sono stati ripristinati</string>
+    <string name="category_ui_settings">Impostazioni dell\'interfaccia</string>
+    <string name="title_language_list">Lingua</string>
+    <string name="summary_language_list">Lingua da usare in Moonlight</string>
+    <string name="title_checkbox_small_icon_mode">Usa icone piccole</string>
+    <string name="summary_checkbox_small_icon_mode">Usa icone piccole nella griglia per avere più oggetti a schermo</string>
+    <string name="category_host_settings">Impostazioni del PC host</string>
+    <string name="title_checkbox_enable_sops">Ottimizza le impostazioni dei giochi</string>
+    <string name="summary_checkbox_enable_sops">Permetti a GFE di modificare le impostazioni dei giochi per uno streaming ottimale</string>
+    <string name="title_checkbox_host_audio">Riproduci audio sul PC</string>
+    <string name="summary_checkbox_host_audio">Riproduce l\'audio sul PC e su questo dispositivo</string>
+    <string name="category_advanced_settings">Impostazioni avanzate</string>
+    <string name="title_disable_frame_drop">Non saltare i fotogrammi</string>
+    <string name="summary_disable_frame_drop">Potrebbe ridurre il micro-stuttering su alcuni dispositivi, ma può aumentare la latenza</string>
+    <string name="title_video_format">Modifica impostazioni del codec</string>
+    <string name="summary_video_format">I nuovi codec possono ridurre i requisiti di larghezza di banda video se il tuo dispositivo li supporta. La scelta del codec può essere ignorata se non è supportato dal software dell\'host o dalla GPU.</string>
+    <string name="title_enable_hdr">Abilita HDR (sperimentale)</string>
+    <string name="summary_enable_hdr">Utilizza l\'HDR quando il gioco e la scheda video del PC lo supportano. L\'HDR richiede una scheda video col supporto dell\'encoding HEVC Main 10.</string>
+    <string name="suffix_osc_opacity">%</string>
+    <string name="pcview_menu_header_online">Online</string>
+    <string name="scut_pc_not_found">PC non trovato</string>
+    <string name="scut_invalid_uuid">Il PC indicato non è valido</string>
+    <string name="scut_invalid_app_id">L\'App indicata non è valida</string>
+    <string name="pcview_menu_header_offline">Offline</string>
+    <string name="pcview_menu_header_unknown">Aggiornando</string>
+    <string name="pcview_menu_details">Mostra Dettagli</string>
+    <string name="pcview_menu_test_network">Controlla la Connessione di Rete</string>
+    <string name="title_details">Dettagli</string>
+    <string name="delete_pc_msg">Sei sicuro di voler rimuovere questo PC\?</string>
+    <string name="slow_connection_msg">Connessione lenta al PC
+\nRidurre il bitrate</string>
+    <string name="poor_connection_msg">Connessione al PC di bassa qualità</string>
+    <string name="applist_menu_hide_app">Nascondi App</string>
+    <string name="applist_menu_scut">Crea Collegamento</string>
+    <string name="applist_menu_tv_channel">Aggiungi al Canale</string>
+    <string name="applist_menu_details">Mostra Dettagli</string>
+    <string name="summary_fps_list">Aumentare per uno streaming video più fluido. Diminuire per prestazioni migliori su dispositivi di fascia più bassa.</string>
+    <string name="applist_details_id">ID Applicazione:</string>
+    <string name="perf_overlay_decoder">Decoder: %1$s</string>
+    <string name="perf_overlay_dectime">Tempo medio di decodifica: %1$.2f ms</string>
+    <string name="perf_overlay_streamdetails">Flusso video: %1$s %2$.2f FPS</string>
+    <string name="nettest_title_waiting">Prova della Connessione di Rete</string>
+    <string name="nettest_text_waiting">Moonlight sta testando la tua connessione di rete per controllare se ogni porta richiesta sia bloccata.
+\n
+\nPotrebbero volerci alcuni secondi…</string>
+    <string name="nettest_title_done">Test della Rete Completato</string>
+    <string name="nettest_text_inconclusive">Il test della rete non è stato effettuato perché nessuno dei server per il test della connessione di Moonlight era raggiungibile. Controlla la tua connessione ad Internet o riprova più tardi.</string>
+    <string name="nettest_text_success">La tua rete non sembra bloccare Moonlight. Se hai ancora problemi di connessione, controlla le impostazioni del firewall del PC.
+\n
+\nSe stai cercando di trasmettere via Internet, installa il Moonlight Internet Hosting Tool sul tuo PC ed avvia il Test per la trasmissione via Internet incluso per controllare la connessione ad Internet del tuo PC.</string>
+    <string name="title_checkbox_vibrate_osc">Abilita vibrazione</string>
+    <string name="title_audio_config_list">Configurazione suono surround</string>
+    <string name="title_checkbox_touchscreen_trackpad">Usa lo schermo touch come un trackpad</string>
+    <string name="summary_audio_config_list">Abilita il sourround 5.1 o 7.1 per sistemi home-theater</string>
+    <string name="title_fps_list">Frame rate video</string>
+    <string name="summary_checkbox_touchscreen_trackpad">Se abilitato, lo schermo touch si comporta come un trackpad. Se disabilitato, lo schermo touch controlla direttamente il cursore del mouse.</string>
+    <string name="title_checkbox_vibrate_fallback">Emula il supporto per la vibrazione</string>
+    <string name="title_checkbox_mouse_nav_buttons">Abilita i bottoni avanti e indietro del mouse</string>
+    <string name="title_osc_opacity">Cambia l\'opavità dei controlli a schermo</string>
+    <string name="title_unlock_fps">Sblocca tutti i frame rate possibili</string>
+    <string name="pacing_balanced">Bilanciato</string>
+    <string name="pacing_latency">Preferisci ritardi minori</string>
+    <string name="suffix_seekbar_bitrate_mbps">Mbps</string>
+    <string name="resolution_prefix_native">Nativo</string>
+    <string name="no_video_received_error">Nessun video ricevuto dal PC sorgente.</string>
+    <string name="resolution_prefix_native_fullscreen">Schermo intero nativo</string>
+    <string name="category_input_settings">Impostazioni di input</string>
+    <string name="title_native_res_dialog">Avviso Risoluzione Nativa</string>
+    <string name="dialog_title_osc_opacity">Cambia opacità</string>
+    <string name="pacing_smoothness">Preferisci video più fluido (potrebbe aumentare significativamente il ritardo)</string>
+    <string name="summary_osc_opacity">Rende i controlli a schermo più/meno trasparenti</string>
+    <string name="summary_checkbox_mouse_nav_buttons">Abilitare questa opzione può far smettere di funzionare il click destro su alcuni dispositivi</string>
+    <string name="title_checkbox_flip_face_buttons">Inverti i bottoni frontali</string>
+    <string name="summary_checkbox_flip_face_buttons">Inverte i bottoni A/B e X/Y sui controller e sui controlli a schermo</string>
+    <string name="summary_checkbox_vibrate_fallback">Fa vibrare il tuo dispositivo per emulare la vibrazione del controller se questo non la supporta</string>
+    <string name="summary_checkbox_vibrate_osc">Fa vibrare il tuo dispositivo per emulare la vibrazione con i controlli a schermo</string>
+    <string name="resolution_360p">360p</string>
+    <string name="resolution_480p">480p</string>
+    <string name="resolution_720p">720p</string>
+    <string name="resolution_1080p">1080p</string>
+    <string name="resolution_1440p">1440p</string>
+    <string name="resolution_4k">4K</string>
+    <string name="fps_30">30 FPS</string>
+    <string name="fps_60">60 FPS</string>
+    <string name="fps_90">90 FPS</string>
+    <string name="fps_120">120 FPS</string>
+    <string name="audioconf_stereo">Stereo</string>
+    <string name="audioconf_51surround">Surround 5.1</string>
+    <string name="audioconf_71surround">Surround 7.1</string>
+    <string name="videoformat_auto">Automatico (Consigliato)</string>
+    <string name="videoformat_hevcalways">Preferisci HEVC</string>
+    <string name="title_frame_pacing">Bilanciamento frame video</string>
+    <string name="summary_frame_pacing">Specifica come bilanciare il ritardo video e la fluidità</string>
+    <string name="summary_enable_perf_overlay">Mostra informazioni real time sulla trasmissione</string>
+    <string name="nettest_text_failure">Sembra che l\'attuale connessione di rete del tuo dispositivo stia bloccando Moonlight. Trasmettere via Internet potrebbe non funzionare mentre sei connesso a questa rete.
+\n
+\nQueste porte di rete sono bloccate:
+\n</string>
+    <string name="nettest_text_blocked">L\'attuale connessione di rete del tuo dispositivo sta bloccando Moonlight. Trasmettere via Internet potrebbe non funzionare mentre sei connesso a questa rete.</string>
+    <string name="unable_to_pin_shortcut">Il tuo launcher non permette la creazione di scorciatoie appuntate.</string>
+    <string name="video_decoder_init_failed">Il decoder video non è riuscito ad inizializzarsi. Il tuo dispositivo potrebbe non supportare la risoluzione o il frame rate selezionati.</string>
+    <string name="check_ports_msg">Controlla il tuo firewall e le regole di inoltro delle seguenti porte:</string>
+    <string name="title_enable_perf_overlay">Mostra le statistiche delle performance durante la trasmissione</string>
+    <string name="title_enable_post_stream_toast">Mostra un messaggio sulla latenza dopo la trasmissione</string>
+    <string name="no_frame_received_error">La tua connessione di rete non sta funzionando bene. Riduci il bitrate video o prova ad usare una connessione più veloce.</string>
+    <string name="early_termination_error">Qualcosa è andato storto sul PC sorgente mentre la trasmissione veniva avviata.
+\n
+\nAssicurati di non avere nessun contenuto protetto da DRM aperto sul PC sorgente. Puoi anche provare a spengere e riaccendere il PC sorgente.</string>
+    <string name="summary_unlock_fps">Trasmettere a 90 o 120 FPS potrebbe ridurre il ritardo su dispositivi di fascia alta, ma può provocare ritardi i instabilità sui dispositivi che non lo supportano</string>
+    <string name="summary_enable_post_stream_toast">Molstra un messaggio con informazioni sulla latenza dopo che la trasmissione è conclusa</string>
+    <string name="text_native_res_dialog">Le impostazioni di risoluzione nativa e/o di FPS possono non essere supportate dal server per lo streaming. Dovrai aggiungerle manualmente all\'interno delle impostazioni del PC o del server.
+\n
+\nSe scegli di create una risoluzione personalizzata nel Pannello di Controllo NVIDIA per copiare la risoluzione dello schermo, assicurati di aver letto e capito il messaggio di attenzione di NVIDIA a proposito dei possibili danni al monitor, all\'instabilità del PC e altri potenziali problemi.
+\n
+\nNon saremo responsabili per qualsiasi problema risultante dalla creazione di una risoluzione personalizzata sul tuo PC.
+\n
+\nPuò capitare che il tuo monitor potrebbe non supportare una risoluzione dello schermo richiesta. In questo caso, prova a impostare un monitor virtuale. Infine, se il tuo dispositivo o PC sorgente non supportano la trasmissione ad una specifica risoluzione dello schermo o della frequenza di aggiornamento, sfortunatamente non ci sono altre soluzioni.</string>
+    <string name="perf_overlay_incomingfps">Frame rate in ingresso dalla rete: %1$.2f FPS</string>
+    <string name="perf_overlay_renderingfps">Frame rate renderizzato: %1$.2f FPS</string>
+    <string name="perf_overlay_netdrops">Frame scartati dalla tua connessione di rete: %1$.2f%%</string>
+    <string name="perf_overlay_netlatency">Latenza media della rete: %1$d ms (varianza: %2$d ms)</string>
+    <string name="category_help">Aiuto</string>
+    <string name="title_setup_guide">Guida configurazione</string>
+    <string name="pacing_balanced_alt">Bilanciato con il limite FPS</string>
+    <string name="summary_seekbar_deadzone">Nota: Alcuni giochi possono imporre una deadzone più grande di quella che Moonlight è configurato per utilizzare.</string>
+    <string name="title_checkbox_absolute_mouse_mode">Modalità mouse desktop remoto</string>
+    <string name="summary_checkbox_absolute_mouse_mode">Questo può rendere l\'accelerazione del mouse più naturale per l\'utilizzo del desktop remoto, ma è incompatibile con molti giochi.</string>
+    <string name="summary_setup_guide">Visualizza le istruzioni su come configurare il tuo PC da gaming per lo streaming</string>
+    <string name="title_troubleshooting">Guida alla risoluzione dei problemi</string>
+    <string name="title_privacy_policy">Informativa sulla privacy</string>
+    <string name="summary_troubleshooting">Visualizza i suggerimenti per la diagnosi e la risoluzione dei problemi di streaming più comuni</string>
+    <string name="summary_privacy_policy">Visualizza l\'informativa sulla privacy di Moonlight</string>
+    <string name="frame_conversion_error">Il PC host ha segnalato un errore fatale di codifica video.
+\n
+\nProva a disabilitare la modalità HDR, modificare la risoluzione dello streaming o la risoluzione del display del tuo PC host.</string>
+    <string name="summary_checkbox_reduce_refresh_rate">Una minore frequenza di aggiornamento del display può risparmiare energia a scapito di una latenza video aggiuntiva</string>
+    <string name="resolution_prefix_native_landscape">(Panorama)</string>
+    <string name="resolution_prefix_native_portrait">(Ritratto)</string>
+    <string name="title_checkbox_enable_audiofx">Abilita il supporto per l\'equalizzatore di sistema</string>
+    <string name="summary_checkbox_enable_audiofx">Consente agli effetti audio di funzionare durante lo streaming, ma può aumentare la latenza audio</string>
+    <string name="title_checkbox_reduce_refresh_rate">Consenti riduzione della frequenza di aggiornamento</string>
+    <string name="summary_full_range">Ciò causerà la perdita di dettagli in aree chiare e scure se il dispositivo non visualizza correttamente i contenuti video a gamma completa.</string>
+    <string name="title_full_range">Forza video full range (sperimentale)</string>
+    <string name="title_native_fps_dialog">Avviso FPS nativi</string>
+    <string name="videoformat_av1always">Preferisci AV1 (Sperimentale)</string>
+    <string name="pcview_menu_eol">Terminazione del servizio NVIDIA GameStream</string>
+    <string name="title_checkbox_gamepad_motion_sensors">Permetti l\'uso dei sensori giroscopici del gamepad</string>
+    <string name="summary_checkbox_gamepad_touchpad_as_mouse">Forza l\'input del touchpad del gamepad a controllare il mouse dell\'host, anche quando si sta emulando un gamepad col touchpad.</string>
+    <string name="toast_controller_type_changed">Il tipo di gamepad potrebbe cambiare se è attiva l\'emulazione dei sensori giroscopici</string>
+    <string name="summary_checkbox_gamepad_motion_sensors">Abilita per gli host supportati la trasmissione dei dati dai sensori giroscopici quando si simula un gamepad con sensori giroscopici. Disabilitandolo può ridurre il consumo di batteria e la rete richiesta per lo stream se i sensori giroscopici non vengono utilizzati nel gioco.</string>
+    <string name="summary_checkbox_gamepad_motion_fallback">Usa i sensori giroscopici integrati nel tuo dispositivo se il tuo gamepad non possiede i sensori giroscopici o non sono compatibili con la tua versione Android.
+\nNota: Abilitare questa opzione farà apparire il tuo gamepad come un controller Playstation all\'host.</string>
+    <string name="videoformat_h264always">Preferisci H.264</string>
+    <string name="fps_suffix_fps">FPS</string>
+    <string name="category_gamepad_settings">Impostazioni del gamepad</string>
+    <string name="title_checkbox_gamepad_motion_fallback">Emula il supporto dei sensori giroscopici del gamepad</string>
+    <string name="pair_pairing_help">Se il tuo PC host sta eseguendo Sunshine, vai nella pagina web locale di Sunshine ed inserisci il PIN.</string>
+    <string name="title_checkbox_gamepad_touchpad_as_mouse">Controlla sempre il mouse col touchpad</string>
+    <string name="perf_overlay_hostprocessinglatency">Latenza di codifica da parte dell\'host min/max/average: %1$.1f/%2$.1f/%3$.1f ms</string>
+    <string name="error_code_prefix">Codice di errore:</string>
+    <string name="title_seekbar_vibrate_fallback_strength">Aggiusta l\'intensità della vibrazione emulata</string>
+    <string name="summary_seekbar_vibrate_fallback_strength">Amplifica o riduci l\'intensità della vibrazione sul tuo dispositivo</string>
+    <string name="suffix_seekbar_vibrate_fallback_strength">%</string>
+    <string name="title_analog_scrolling">Utilizza lo stick analogico per scorrere</string>
+    <string name="summary_analog_scrolling">Seleziona uno stick analogico per scorrere durante la modalità di emulazione del mouse</string>
+    <string name="analogscroll_none">Nessuna (entrambi gli stick muovono il mouse)</string>
+    <string name="analogscroll_right">Stick analogico destro</string>
+    <string name="analogscroll_left">Stick analogico sinistro</string>
+    <!-- General strings -->
+    <string name="perf_overlay_audio_underruns">Interruzioni audio: %1$d</string>
+    <!-- Preferences -->
+    <string name="title_checkbox_vr_virtual_surround">Surround virtuale per visori</string>
+    <string name="summary_checkbox_vr_virtual_surround">Colloca ogni altoparlante 5.1 o 7.1 intorno a te in audio stereo, ancorato allo schermo mentre giri la testa. Richiede 5.1 o 7.1 selezionato sopra, e un host e un gioco con uscita surround.</string>
+    <string name="title_show_guide_button">Mostra il pulsante Guida</string>
+    <string name="summary_show_guide_button">Mostra il pulsante Guida sullo schermo</string>
+    <string name="title_checkbox_auto_launch_desktop">Apri Desktop automaticamente</string>
+    <string name="summary_checkbox_auto_launch_desktop">Quando tocchi un PC, avvia la sua app chiamata Desktop senza mostrare l\'elenco delle app, se l\'host ne ha una</string>
+    <string name="title_settings_back">Indietro</string>
+    <string name="summary_settings_back">Torna all\'elenco dei computer</string>
+    <string name="category_vr_settings">Impostazioni VR</string>
+    <string name="category_vr_debug">Debug VR</string>
+    <string name="title_enable_vr_mode">Trasmetti in VR</string>
+    <string name="summary_enable_vr_mode">Mostra la trasmissione su uno schermo virtuale in una sessione VR immersiva. Solo per visori, ed è l\'unica modalità con effetto 3D.</string>
+    <string name="title_vr_head_locked">Schermo fisso alla testa</string>
+    <string name="summary_vr_head_locked">Tiene lo schermo virtuale fisso davanti alla tua vista invece che ancorato nello spazio</string>
+    <string name="title_seekbar_vr_distance">Distanza dello schermo</string>
+    <string name="summary_seekbar_vr_distance">Quanto lontano si trova lo schermo virtuale</string>
+    <string name="title_seekbar_vr_screen_size">Larghezza dello schermo</string>
+    <string name="summary_seekbar_vr_screen_size">Larghezza dello schermo virtuale</string>
+    <string name="title_seekbar_vr_curvature">Curvatura dello schermo</string>
+    <string name="summary_seekbar_vr_curvature">0 è piatto, valori più alti curvano lo schermo intorno a te</string>
+    <string name="suffix_seekbar_vr_meters">m</string>
+    <string name="title_vr_pointer">Controller come mouse</string>
+    <string name="title_vr_gaze">Punta con lo sguardo</string>
+    <string name="summary_vr_gaze">Su un visore con tracciamento oculare, punta guardando lo schermo e unisci pollice e indice di una mano qualsiasi per fare clic. Premere un pulsante su un controller gli passa il puntatore finché non viene posato, e se gli occhi non vengono rilevati per 10 secondi, puntano le mani finché non tornano.</string>
+    <string name="title_vr_hand_tracking">Tracciamento delle mani</string>
+    <string name="summary_vr_hand_tracking">Punta e fai clic con le mani quando posi i controller. Disattivalo per usare solo i controller. Durante una sessione, unisci pollice e indice tre volte velocemente per bloccare le mani senza lasciare il gioco; lo stesso triplo tocco le sblocca.</string>
+    <string name="vr_hand_hint_title">Il tracciamento delle mani è attivo.</string>
+    <string name="vr_hand_hint_body">Unisci pollice e indice tre volte velocemente per bloccare le mani, così un tocco accidentale non fa clic; lo stesso triplo tocco le sblocca.</string>
+    <string name="vr_hand_hint_never">Non mostrare più</string>
+    <string name="vr_kofi_title">Sostieni Moonlight XR su Ko-fi</string>
+    <string name="vr_kofi_scan">Inquadralo con il telefono.</string>
+    <string name="vr_kofi_free">Facoltativo: Moonlight XR è gratuito e lo resterà.</string>
+    <string name="vr_kofi_close">Chiudi</string>
+    <string name="summary_vr_pointer">Punta un controller verso lo schermo per muovere il mouse dell\'host. Il grilletto fa clic, A o X fa clic destro, la levetta scorre. Premi la levetta per disattivare il puntatore in un gioco che usa il mouse da sé.</string>
+    <string name="title_vr_pointer_sleep">Metti in pausa il puntatore quando il controller è fermo</string>
+    <string name="summary_vr_pointer_sleep">Il puntatore di un controller scompare dopo qualche secondo da fermo e torna quando si muove o se ne spinge la levetta. Disattivalo per tenerlo sempre attivo, così la levetta scorre anche con il puntatore fuori dallo schermo.</string>
+    <string name="title_vr_show_ray">Mostra il raggio del controller</string>
+    <string name="summary_vr_show_ray">Il fascio che va dal controller allo schermo. Disattivalo per i giochi con pistola ottica: il punto in cui arriva resta e le pressioni funzionano come prima, il raggio torna mentre è aperto un pannello, e il pulsante del raggio sotto lo schermo lo cambia per la sessione.</string>
+    <string name="title_vr_controller_model">Mostra i controller</string>
+    <string name="summary_vr_controller_model">Disegna un controller semplice in ogni mano, dove si trova quello vero. Non in passthrough, dove si vedono quelli veri, né mentre vengono tracciate le tue mani.</string>
+    <string name="title_vr_head_aim">La testa muove il mouse</string>
+    <string name="summary_vr_head_aim">Solo con lo schermo fisso alla testa: girare la testa muove il mouse come il controllo della visuale di un gioco, per i giochi in prima persona. Il puntatore del controller e un mouse vero continuano a funzionare. Si mette in pausa quando è aperto un pannello, e il pulsante del controllo con la testa sotto lo schermo lo cambia per la sessione.</string>
+    <string name="title_seekbar_vr_head_aim_sensitivity">Sensibilità del controllo con la testa</string>
+    <string name="summary_seekbar_vr_head_aim_sensitivity">Quanto si muove il mouse per ogni grado di rotazione della testa. Regolala insieme alla sensibilità del mouse del gioco finché la visuale non gira quanto la tua testa. La scheda «Schermo» del pannello impostazioni nel visore cambia lo stesso valore.</string>
+    <string name="title_seekbar_vr_head_aim_deadzone">Zona morta del controllo con la testa</string>
+    <string name="summary_seekbar_vr_head_aim_deadzone">Una rotazione della testa più lenta di così non invia nulla, così il tremolio del tracciamento non muove il mouse mentre stai fermo. 0 invia ogni movimento.</string>
+    <string name="title_vr_gamepad_toggle">Scorciatoia della modalità gamepad</string>
+    <string name="summary_vr_gamepad_toggle">Ora: %s. La modalità gamepad trasforma i due controller in un unico controller Xbox sul PC: le levette, A, B, X e Y, i grilletti, le prese come dorsali, i clic delle levette e il pulsante menu sinistro come Start. Si attiva solo durante una sessione, dalla scheda «Vista» del pannello impostazioni o dal pulsante gamepad sotto lo schermo, e ogni sessione inizia con i controller come puntatore. Questa scorciatoia passa poi dall\'uno all\'altro dai controller. Con le levette, o con grilletti e prese, quei comandi arrivano al gioco con un attimo di ritardo mentre la scorciatoia verifica se sono destinati a lei.</string>
+    <string name="vr_gamepad_toggle_menu_grip">Tieni premuti il pulsante menu sinistro e la presa sinistra</string>
+    <string name="vr_gamepad_toggle_sticks">Premi entrambe le levette (L3 + R3)</string>
+    <string name="vr_gamepad_toggle_triggers_grips">Stringi entrambi i grilletti e entrambe le prese</string>
+    <string name="title_vr_click_sound">Clic alla pressione di un pannello</string>
+    <string name="summary_vr_click_sound">Un breve tic quando una pressione nel visore cade su un pannello, un pulsante o un tasto. Viene riprodotto con i suoni di sistema, separato dall\'audio della trasmissione.</string>
+    <string name="title_vr_reset_pose">Ripristina la posizione dello schermo</string>
+    <string name="summary_vr_reset_pose">Riporta lo schermo alla distanza e alla larghezza impostate sopra, annullando ogni spostamento o ridimensionamento fatto con i controller</string>
+    <string name="toast_vr_reset_pose">Posizione dello schermo ripristinata</string>
+    <string name="title_vr_passthrough">Modalità passthrough</string>
+    <string name="summary_vr_passthrough">Attiva il passthrough. Usa più risorse di sistema; disattivalo se la trasmissione non va bene</string>
+    <string name="title_vr_environment">Ambiente</string>
+    <string name="summary_vr_environment">Ora: %s. Ciò che circonda lo schermo all\'inizio di una sessione. Sceglierne uno nel visore, dal pulsante sotto lo schermo, cambia anche questo.</string>
+    <string name="title_vr_doff_grace">Mantieni la trasmissione per un minuto quando togli il visore</string>
+    <string name="summary_vr_doff_grace">Se togli il visore per un momento, la trasmissione attende fino a 60 secondi con l\'audio disattivato e riprende quando lo rimetti. Se è disattivato, la trasmissione termina appena togli il visore.</string>
+    <string name="vr_environment_passthrough">Passthrough</string>
+    <string name="vr_environment_void">Vuoto nero</string>
+    <string name="vr_environment_home_theater">Home Theater</string>
+    <string name="vr_environment_grand_cinema">Grand Cinema</string>
+    <string name="vr_environment_synthwave">Synthwave</string>
+    <string name="title_vr_depth_source">Modalità 3D in tempo reale</string>
+    <string name="summary_vr_depth_source">Scegli la modalità 3D in tempo reale, inclusi i pattern di prova.</string>
+    <string name="title_vr_env_res">Risoluzione ambiente</string>
+    <string name="summary_vr_env_res">Quanto nitida viene resa la sala 3D intorno allo schermo. Più alta costa più tempo GPU. Ultra è sperimentale e può causare scatti o stuttering.</string>
+    <string name="title_seekbar_vr_picture_brightness">Luminosità dell\'immagine</string>
+    <string name="summary_seekbar_vr_picture_brightness">Alza o abbassa l\'intera immagine nel visore. 0 è l\'immagine come viene trasmessa. La scheda «Immagine» del pannello impostazioni nel visore cambia gli stessi quattro valori.</string>
+    <string name="title_seekbar_vr_picture_contrast">Contrasto dell\'immagine</string>
+    <string name="summary_seekbar_vr_picture_contrast">Allarga i toni dell\'immagine o li avvicina attorno al grigio medio. 100% è l\'immagine come viene trasmessa.</string>
+    <string name="title_seekbar_vr_picture_gamma">Gamma dell\'immagine</string>
+    <string name="summary_seekbar_vr_picture_gamma">Sopra 1.00 schiarisce i mezzitoni e le ombre senza ingrigire il nero o il bianco, cosa che di solito si adatta a un gioco scuro meglio della luminosità. 1.00 è l\'immagine come viene trasmessa.</string>
+    <string name="title_seekbar_vr_picture_saturation">Saturazione dell\'immagine</string>
+    <string name="summary_seekbar_vr_picture_saturation">Quanto sono intensi i colori dell\'immagine. 0% è bianco e nero, 100% è l\'immagine come viene trasmessa.</string>
+    <string name="title_vr_sharpening">Nitidezza dello schermo</string>
+    <string name="summary_vr_sharpening">Aumenta la nitidezza dello schermo virtuale nel compositor del visore. Non costa nulla sui visori supportati e viene ignorata sui runtime senza l\'estensione.</string>
+    <string name="title_vr_supersampling">Supersampling dello schermo</string>
+    <string name="summary_vr_supersampling">Applica il supersampling allo schermo virtuale nel compositor del visore, stabilizzando i dettagli fini che sfarfallano quando lo schermo è mostrato più piccolo della trasmissione. Usa un po\' di tempo GPU del compositor e viene ignorato sui runtime senza l\'estensione.</string>
+    <string name="title_vr_depth_debug">Mostra la mappa di profondità</string>
+    <string name="summary_vr_depth_debug">Mostra la mappa di profondità in scala di grigi al posto del video, per controllare la qualità della profondità</string>
+    <string name="title_vr_eye_swap">Inverti gli occhi</string>
+    <string name="summary_vr_eye_swap">Scambia le immagini dell\'occhio sinistro e destro in modalità stereo</string>
+    <string name="vr_unavailable_flat">Non è stato possibile raggiungere il runtime OpenXR del visore, quindi la trasmissione è mostrata su un pannello piatto. Aggiorna il software del visore o disattiva «Trasmetti in VR».</string>
+    <!-- %1$s is one of the vr_fail lines below, which say why -->
+    <string name="vr_unavailable_flat_reason">%1$s\nLa trasmissione è mostrata su un pannello piatto. Aggiorna il software del visore o disattiva «Trasmetti in VR».</string>
+    <string name="vr_fail_no_runtime">Nessun runtime OpenXR ha risposto</string>
+    <!-- %1$s is the names of the missing OpenXR extensions -->
+    <string name="vr_fail_extensions">Il runtime OpenXR non offre %1$s</string>
+    <!-- %1$s in the vr_fail lines is what the runtime answered, like XR_ERROR_RUNTIME_FAILURE -->
+    <string name="vr_fail_instance">Il runtime ha rifiutato l\'istanza (%1$s)</string>
+    <string name="vr_fail_system">Il runtime non ha trovato nessun visore pronto (%1$s)</string>
+    <string name="vr_fail_graphics">Il runtime ha rifiutato OpenGL ES (%1$s)</string>
+    <string name="vr_fail_egl">Il driver grafico del visore ha avuto un errore (%1$s)</string>
+    <string name="vr_fail_session">Il runtime ha rifiutato la sessione (%1$s)</string>
+    <string name="vr_fail_space">Il runtime ha rifiutato uno spazio di tracciamento (%1$s)</string>
+    <string name="vr_fail_swapchain">Il runtime ha rifiutato la swapchain video (%1$s)</string>
+    <string name="vr_fail_gl">Non è stato possibile compilare gli shader del renderer</string>
+    <!-- %1$s is a number of seconds -->
+    <string name="vr_fail_timeout">Il runtime non ha risposto entro %1$s secondi</string>
+    <string name="vr_fail_unknown">Non è stato possibile avviare la sessione VR</string>
+    <string name="vr_toast_rate">Schermo a %1$d Hz</string>
+    <string name="vr_toast_hands_locked">Mani bloccate</string>
+    <string name="vr_toast_hands_unlocked">Mani sbloccate</string>
+    <string name="vr_toast_3d_off">3D disattivato</string>
+    <string name="vr_toast_3d_on">3D attivato</string>
+    <string name="vr_toast_head_aim_on">Controllo con la testa attivo</string>
+    <string name="vr_toast_head_aim_on_more">Girare la testa muove il mouse</string>
+    <string name="vr_toast_head_aim_off">Controllo con la testa disattivato</string>
+    <string name="vr_toast_gamepad_mode">Modalità gamepad</string>
+    <string name="vr_toast_gamepad_back_menu_grip">Tieni premuti il pulsante menu sinistro e la presa sinistra per tornare al puntatore</string>
+    <string name="vr_toast_gamepad_back_sticks">Premi entrambe le levette per tornare al puntatore</string>
+    <string name="vr_toast_gamepad_back_triggers_grips">Stringi entrambi i grilletti e entrambe le prese per tornare al puntatore</string>
+    <string name="vr_toast_pointer_mode">Modalità puntatore</string>
+    <!-- The panels inside the session. They are drawn at a fixed size, so keep these short. -->
+    <string name="vr_panel_tab_screen">Schermo</string>
+    <string name="vr_panel_tab_display">Vista</string>
+    <string name="vr_panel_3d">3D</string>
+    <string name="vr_panel_tab_picture">Immagine</string>
+    <string name="vr_panel_tab_about">Info</string>
+    <string name="vr_panel_tab_room">Sala</string>
+    <string name="vr_panel_distance">Distanza</string>
+    <string name="vr_panel_height">Altezza</string>
+    <string name="vr_panel_tilt">Inclinazione</string>
+    <string name="vr_panel_rotate">Rotazione</string>
+    <string name="vr_panel_curve">Curvatura</string>
+    <string name="vr_panel_size">Dimensione</string>
+    <string name="vr_panel_aim_sensitivity">Sensibilità (testa)</string>
+    <string name="vr_panel_aim_dead_zone">Zona morta (testa)</string>
+    <!-- Where head aim's rows are greyed out: the screen is not locked to the head. Names the Head locked row. -->
+    <string name="vr_panel_needs_head_lock">richiede «Fisso alla testa»</string>
+    <string name="vr_panel_not_in_room">non in una sala</string>
+    <string name="vr_panel_reset">Ripristina</string>
+    <string name="vr_panel_brightness">Luminosità</string>
+    <string name="vr_panel_glow">Bagliore</string>
+    <string name="vr_panel_screen_light">Luce dello schermo</string>
+    <string name="vr_panel_light_level">Livello di luce</string>
+    <string name="vr_panel_off">Disattivato</string>
+    <string name="vr_panel_on">Attivato</string>
+    <string name="vr_panel_fixed_size">Lo schermo di questa sala ha una dimensione fissa</string>
+    <string name="vr_panel_sharpen">Nitidezza</string>
+    <string name="vr_panel_supersample">Supersampling</string>
+    <string name="vr_panel_stats">Statistiche</string>
+    <string name="vr_panel_head_locked">Fisso alla testa</string>
+    <string name="vr_panel_head_aim">Controllo con la testa</string>
+    <string name="vr_panel_controllers">Controller</string>
+    <string name="vr_panel_pointer_sleep">Pausa del puntatore</string>
+    <string name="vr_panel_ray">Raggio</string>
+    <string name="vr_panel_controller_model">Modello del controller</string>
+    <string name="vr_panel_click_sound">Suono del clic</string>
+    <string name="vr_panel_normal">Normale</string>
+    <string name="vr_panel_quality">Qualità</string>
+    <string name="vr_panel_pointer">Puntatore</string>
+    <string name="vr_panel_gamepad">Gamepad</string>
+    <string name="vr_panel_glow_level">Livello del bagliore</string>
+    <string name="vr_panel_shortcut_menu_grip">Scorciatoia: menu + presa sinistri</string>
+    <string name="vr_panel_shortcut_sticks">Scorciatoia: entrambe le levette</string>
+    <string name="vr_panel_shortcut_triggers_grips">Scorciatoia: grilletti + prese</string>
+    <string name="vr_panel_preset">Preimpostazione</string>
+    <string name="vr_panel_comfort">Comfort</string>
+    <string name="vr_panel_balanced">Bilanciato</string>
+    <string name="vr_panel_strong">Intenso</string>
+    <string name="vr_panel_depth">Profondità</string>
+    <string name="vr_panel_convergence">Convergenza</string>
+    <string name="vr_panel_harder_on_eyes">affatica di più gli occhi</string>
+    <string name="vr_panel_3d_off_in_settings">Il 3D è disattivato nelle impostazioni</string>
+    <string name="vr_panel_contrast">Contrasto</string>
+    <string name="vr_panel_gamma">Gamma</string>
+    <string name="vr_panel_saturation">Saturazione</string>
+    <string name="vr_panel_version">Versione %1$s, commit %2$s</string>
+    <string name="vr_panel_version_no_commit">Versione %1$s</string>
+    <!-- %1$s is where the log file is, like Download/MoonlightXR/moonlight.log -->
+    <string name="vr_panel_log_file">File di log: %1$s</string>
+    <string name="vr_panel_log_file_off">File di log: disattivato</string>
+    <string name="vr_panel_report_sends">Invia una nota con il visore, le tue impostazioni e il log</string>
+    <string name="vr_panel_rooms">Sale</string>
+    <!-- Keys on the keyboard inside the session, one key wide: Shift one and a half, space four -->
+    <string name="vr_key_shift">Maiusc</string>
+    <string name="vr_key_space">spazio</string>
+    <string name="vr_key_enter">Invio</string>
+    <string name="vr_key_hide">Nascondi</string>
+    <string name="vr_key_ctrl">Ctrl</string>
+    <string name="vr_key_alt">Alt</string>
+    <string name="vr_key_win">Win</string>
+    <string name="vr_exit_question">Uscire dalla trasmissione?</string>
+    <string name="vr_exit">Esci</string>
+    <!-- The report sheet inside the session -->
+    <string name="vr_report_note_hint">Cosa stavi facendo quando si è verificato il problema?</string>
+    <string name="vr_report_optional">Facoltativo</string>
+    <string name="vr_report_email_bad">Non sembra un indirizzo email</string>
+    <string name="vr_report_sends">Invia il tuo messaggio, i dati del visore e della build, le tue impostazioni e il log dell\'app, che può includere il nome e l\'indirizzo del tuo PC sulla rete. Non viene inviato nulla finché non premi «Invia».</string>
+    <string name="vr_report_not_written">Non è stato possibile salvare la segnalazione</string>
+    <string name="vr_battery">Batteria %1$d%%</string>
+    <string name="title_bug_report">Segnala un problema</string>
+    <string name="summary_bug_report">Prepara una segnalazione con il tuo messaggio, il dispositivo, le impostazioni e il log, e inviala</string>
+    <!-- The About category at the end of the settings -->
+    <string name="category_about">Informazioni</string>
+    <string name="about_version">Moonlight XR %1$s, commit %2$s</string>
+    <string name="about_version_no_commit">Moonlight XR %1$s</string>
+    <string name="title_about_licence">Licenza: GPLv3</string>
+    <string name="title_checkbox_check_updates">Controlla aggiornamenti</string>
+    <string name="summary_checkbox_check_updates">Una volta al giorno l\'app chiede a GitHub l\'ultima versione e mostra un avviso se ce n\'è una più recente. Viene inviata solo la versione dell\'app, e non viene scaricato nulla.</string>
+    <string name="update_notice">Moonlight XR %1$s è disponibile</string>
+    <string name="update_notice_view">Visualizza</string>
+    <string name="update_notice_dismiss">Ignora</string>
+    <string name="bug_report_intro">Descrivi cosa è andato storto e cosa ti aspettavi. La segnalazione unisce il tuo messaggio alla versione dell\'app, al visore, alle impostazioni di trasmissione e al file di log, che può includere il nome e l\'indirizzo del tuo PC sulla rete, e viene inviata a %1$s.\n\nLog: %2$s</string>
+    <string name="bug_report_log_off">disattivato. Attiva «Salva un file di log» e riproduci prima il problema, altrimenti la segnalazione non conterrà alcun log.</string>
+    <string name="bug_report_email_hint">Il tuo indirizzo email, per una risposta</string>
+    <string name="bug_report_message_hint">Cosa è successo?</string>
+    <string name="bug_report_send_direct">Invia</string>
+    <string name="bug_report_sending">Invio della segnalazione…</string>
+    <string name="bug_report_sent">Segnalazione inviata</string>
+    <string name="bug_report_not_sent_at">Invio non riuscito, salvata in</string>
+    <string name="bug_report_busy_at">Server occupato, salvata in</string>
+    <string name="bug_report_no_collector_at">Versione senza server, salvata in</string>
+    <string name="bug_report_failed">Impossibile scrivere la segnalazione: %1$s</string>
+    <string name="title_vr_file_log">Salva un file di log</string>
+    <string name="summary_vr_file_log">Tiene un log in testo semplice in Download/MoonlightXR, dove il file manager del visore può trovarlo e puoi allegarlo a una segnalazione. Può includere il nome e l\'indirizzo del tuo PC sulla rete. A 5 MB passa a moonlight.previous.log, così i due insieme non superano mai 10 MB. Riavvia l\'app perché una modifica abbia effetto.</string>
+    <string name="title_seekbar_vr_inference_cadence">Aggiornamenti di profondità al secondo</string>
+    <string name="summary_seekbar_vr_inference_cadence">Quante mappe di profondità crea il 3D ogni secondo. Meno è più leggero per il visore, ma la profondità resta più indietro. Quando il visore non riesce a stare al passo, questo valore viene dimezzato per un po\' prima di abbassare la frequenza dello schermo.</string>
+    <string name="suffix_seekbar_vr_inference_cadence">al secondo</string>
+    <string name="title_seekbar_vr_separation">Separazione stereo</string>
+    <string name="summary_seekbar_vr_separation">Quanto sono distanti le due viste degli occhi, in percentuale della larghezza del fotogramma. Sopra circa 0.5 l\'immagine non sembra più profonda ma affatica di più gli occhi.</string>
+    <string name="suffix_seekbar_vr_percent">%</string>
+    <string name="suffix_seekbar_vr_head_aim_sensitivity">px per grado</string>
+    <string name="suffix_seekbar_vr_head_aim_deadzone">gradi al secondo</string>
+    <string name="gen1_warning_title">Rilevato un visore meno recente</string>
+    <string name="gen1_warning_text">Questa app è pensata per Quest 3 / Pico 4 Ultra o visori più recenti. Le prestazioni sui visori della generazione Quest 2 / Pico 4 o precedenti non sono state testate e si prevede che siano scarse. È stato applicato un profilo di prestazioni più basso per mantenere l\'esperienza piacevole. Disattivare il 3D in tempo reale dà un enorme aumento di prestazioni, ma probabilmente è proprio il motivo per cui hai scaricato questa app! Solo per tua informazione. Grazie e buon divertimento!</string>
+    <string name="warning_dialog_never_again">Non mostrare più</string>
+    <string name="title_enable_gl_render_path">Rendering tramite OpenGL (sperimentale)</string>
+    <string name="summary_enable_gl_render_path">Passa il video decodificato attraverso una texture OpenGL prima della visualizzazione. Dovrebbe apparire identico al rendering normale. Con questa opzione attiva, i flussi HDR vengono limitati nei toni.</string>
+    <!-- Permission justification -->
+    <string name="local_network_rationale">Moonlight richiede l\'autorizzazione per la rete locale per comunicare con gli host vicini</string>
+    <!-- Array strings -->
+    <string name="fps_72">72 FPS</string>
+    <!-- VR Array strings -->
+    <string name="vr_depth_source_zipdepth">V2.0 - 3D basato su ZipDepth (consigliato)</string>
+    <string name="vr_depth_source_off">Disattivato</string>
+    <string name="vr_depth_source_model">V1.0 - 3D basato su MiDaS</string>
+    <string name="vr_depth_source_flat">Pattern di prova: piano piatto</string>
+    <string name="vr_depth_source_ramp">Pattern di prova: rampa orizzontale</string>
+    <string name="vr_depth_source_blob">Pattern di prova: macchia centrale</string>
+    <string name="vr_depth_source_eyetest">Pattern di prova: assegnazione degli occhi</string>
+    <string name="vr_depth_source_shifttest">Pattern di prova: misura dello spostamento</string>
+    <string name="vr_env_res_low">Bassa</string>
+    <string name="vr_env_res_standard">Standard</string>
+    <string name="vr_env_res_high">Alta</string>
+    <string name="vr_env_res_ultra">Ultra (sperimentale)</string>
+    <string name="vr_sharpening_off">Disattivata</string>
+    <string name="vr_sharpening_normal">Normale</string>
+    <string name="vr_sharpening_quality">Qualità</string>
+    <string name="vr_supersampling_off">Disattivato</string>
+    <string name="vr_supersampling_normal">Normale</string>
+    <string name="vr_supersampling_quality">Qualità</string>
+    <string name="vr_file_log_off">Disattivato</string>
+    <string name="vr_file_log_basic">Avvisi ed errori</string>
+    <string name="vr_file_log_verbose">Dettagliato</string>
+</resources>

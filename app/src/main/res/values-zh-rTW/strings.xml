@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shortcut strings -->
+    <string name="scut_deleted_pc"> 電腦已刪除 </string>
+    <string name="scut_not_paired"> 電腦未配對 </string>
+    <string name="scut_pc_not_found"> 電腦未找到 </string>
+    <string name="scut_invalid_uuid"> 提供的電腦無效 </string>
+    <string name="scut_invalid_app_id">提供的應用程式無效</string>
+    <!-- Help strings -->
+    <string name="help_loading_title">說明檢視器</string>
+    <string name="help_loading_msg">正在載入說明頁面…</string>
+    <!-- PC view menu entries -->
+    <string name="pcview_menu_app_list">檢視遊戲清單</string>
+    <string name="pcview_menu_pair_pc"> 和電腦配對 </string>
+    <string name="pcview_menu_unpair_pc"> 取消配對 </string>
+    <string name="pcview_menu_send_wol">傳送 Wake-On-LAN 要求</string>
+    <string name="pcview_menu_delete_pc"> 刪除電腦 </string>
+    <string name="pcview_menu_details">檢視詳細資料</string>
+    <!-- Pair messages -->
+    <string name="pairing">正在配對…</string>
+    <string name="pair_pc_offline">電腦已離線</string>
+    <string name="pair_pc_ingame">電腦目前正在遊戲中，在配對之前你必須先退出遊戲。</string>
+    <string name="pair_pairing_title">正在配對</string>
+    <string name="pair_pairing_msg">請在目標電腦上輸入以下 PIN 碼：</string>
+    <string name="pair_incorrect_pin">PIN 碼錯誤</string>
+    <string name="pair_fail"> 配對失敗 </string>
+    <string name="pair_already_in_progress">正在配對，請稍候</string>
+    <!-- WOL messages -->
+    <string name="wol_pc_online">電腦已上線</string>
+    <string name="wol_no_mac">無法喚醒電腦，因為沒有已儲存的 MAC 位址</string>
+    <string name="wol_waking_pc">正在喚醒電腦…</string>
+    <string name="wol_waking_msg">喚醒電腦需要一些時間。如果電腦沒有喚醒，請確保 Wake-On-LAN 設定無誤。</string>
+    <string name="wol_fail">無法傳送 Wake-On-LAN 資料包</string>
+    <!-- Unpair messages -->
+    <string name="unpairing">正在取消配對…</string>
+    <string name="unpair_success"> 成功取消配對 </string>
+    <string name="unpair_fail"> 無法配對 </string>
+    <string name="unpair_error">裝置尚未配對</string>
+    <!-- Errors -->
+    <string name="error_pc_offline">電腦已離線</string>
+    <string name="error_manager_not_running">ComputerManager 服務未在執行。請稍等幾秒或重啟應用程式。</string>
+    <string name="error_unknown_host"> 無法解析主機位址 </string>
+    <string name="error_404">GFE 傳回了 HTTP 404 錯誤，請確保你的電腦 GPU 支援串流。使用遠端桌面軟體同樣會引起此錯誤，請嘗試重啟電腦或重新安裝 GFE。</string>
+    <string name="title_decoding_error">視訊解碼器已當機</string>
+    <string name="message_decoding_error">由於與這個裝置的視訊解碼器不相容，Moonlight 已當機。若當機持續，請嘗試調整串流設定。</string>
+    <string name="title_decoding_reset">重設視訊設定</string>
+    <string name="message_decoding_reset">由於裝置的視訊解碼器在你選取的串流設定上持續當機，已重設你的串流設定。</string>
+    <string name="error_usb_prohibited">裝置管理員已禁止 USB 訪問。請檢查您的 Knox 或 MDM 設定。</string>
+    <string name="unable_to_pin_shortcut">您目前的啟動器不允許創建釘選的捷徑。</string>
+    <!-- Start application messages -->
+    <string name="conn_establishing_title">正在建立連線</string>
+    <string name="conn_establishing_msg">正在啟動連線</string>
+    <string name="conn_metered">警告：你正在使用行動網路連線！</string>
+    <string name="conn_client_latency">平均每個影格解碼延時：</string>
+    <string name="conn_client_latency_hw">硬體解碼器延時：</string>
+    <string name="conn_hardware_latency">硬體解碼器平均延時：</string>
+    <string name="conn_starting">正在啟動</string>
+    <string name="conn_error_title">連線錯誤</string>
+    <string name="conn_error_msg">無法啟動</string>
+    <string name="conn_terminated_title">連線已終止</string>
+    <string name="conn_terminated_msg">連線已終止</string>
+    <!-- General strings -->
+    <string name="ip_hint">主機電腦的 IP 位址</string>
+    <string name="searching_pc">正在您的區域網路中搜尋主機電腦…
+\n
+\n 請確保 Sunshine 正在您的主機電腦中執行，或在 GFE SHIELD 設定中啟用 GAMESTREAM。</string>
+    <string name="yes"> 確定 </string>
+    <string name="no"> 取消 </string>
+    <string name="lost_connection">與電腦失去連線</string>
+    <string name="title_details">詳細資料</string>
+    <string name="help">說明</string>
+    <string name="delete_pc_msg"> 你確定要刪除這台電腦？ </string>
+    <string name="slow_connection_msg">與電腦連線過慢
+\n 請降低位元速率</string>
+    <string name="poor_connection_msg">與電腦連線不良</string>
+    <string name="perf_overlay_decoder">解碼器：%1$s</string>
+    <string name="perf_overlay_incomingfps">網路接收影格速率：%1$.2f FPS</string>
+    <string name="perf_overlay_renderingfps">轉譯影格速率：%1$.2f FPS</string>
+    <string name="perf_overlay_netdrops">網路丟失影格：%1$.2f%%</string>
+    <string name="perf_overlay_dectime">平均解碼時間：%1$.2f ms</string>
+    <string name="perf_overlay_audio_underruns">音訊欠載：%1$d</string>
+    <!-- AppList activity -->
+    <string name="applist_connect_msg">正在連線電腦…</string>
+    <string name="applist_menu_resume">繼續工作階段</string>
+    <string name="applist_menu_quit">結束工作階段</string>
+    <string name="applist_menu_quit_and_start">結束目前遊戲並開始這個遊戲</string>
+    <string name="applist_menu_cancel"> 取消 </string>
+    <string name="applist_menu_details">檢視詳細資料</string>
+    <string name="applist_menu_scut">建立捷徑</string>
+    <string name="applist_menu_tv_channel">新增至頻道</string>
+    <string name="applist_refresh_title">遊戲清單</string>
+    <string name="applist_refresh_msg">正在重新整理…</string>
+    <string name="applist_refresh_error_title"> 錯誤 </string>
+    <string name="applist_refresh_error_msg">無法取得遊戲清單</string>
+    <string name="applist_quit_app">正在結束</string>
+    <string name="applist_quit_success">成功結束</string>
+    <string name="applist_quit_fail">無法結束</string>
+    <string name="applist_quit_confirmation">您確定要結束執行中的遊戲？所有未儲存的資料將丟失。</string>
+    <string name="applist_details_id">App ID：</string>
+    <!-- Add computer manually activity -->
+    <string name="title_add_pc">手動新增電腦</string>
+    <string name="msg_add_pc">正在連線電腦…</string>
+    <string name="addpc_fail">無法連線至指定電腦。請確保必要通訊埠未被防火牆封鎖。</string>
+    <string name="addpc_success">成功新增電腦</string>
+    <string name="addpc_unknown_host">無法解析電腦的 IP 位址，請確保 IP 位址輸入無誤。</string>
+    <string name="addpc_enter_ip">請輸入一個 IP 位址</string>
+    <string name="addpc_wrong_sitelocal">該位址似乎不正確。 您必須使用路由器的公共 IP 位址透過乙太網路進行串流。</string>
+    <!-- Preferences -->
+    <string name="category_basic_settings">基本設定</string>
+    <string name="title_resolution_list">視訊解析度</string>
+    <string name="summary_resolution_list">高解析度提升圖像清晰度。低解析度提升在低效能裝置和較慢網路中的串流體驗。</string>
+    <string name="title_fps_list">視訊影格速率</string>
+    <string name="summary_fps_list">提高影格速率以取得更順暢的視訊串流，降低可在低效能裝置上取得更好的串流體驗。</string>
+    <string name="title_seekbar_bitrate">視訊位元速率</string>
+    <string name="summary_seekbar_bitrate">提高位元速率以提升圖像品質，降低可在較慢的網路中取得更好的串流體驗。</string>
+    <string name="title_unlock_fps">解鎖所有可用影格速率</string>
+    <string name="summary_unlock_fps">以 90 或 120 畫面更新率串流可能會減少在高效能裝置上的網路延時，但在不支援的裝置上會卡頓或不穩定的狀況</string>
+    <string name="title_checkbox_stretch_video">將畫面延展至全螢幕</string>
+    <string name="title_checkbox_disable_warnings">停用錯誤訊息</string>
+    <string name="summary_checkbox_disable_warnings">停用串流中連線錯誤訊息</string>
+    <string name="title_checkbox_enable_pip">啟用子母畫面觀察模式</string>
+    <string name="summary_checkbox_enable_pip">允許多工時檢視串流畫面 (但無法控制)</string>
+    <string name="category_audio_settings">音訊設定</string>
+    <string name="title_audio_config_list">環場音效組態</string>
+    <string name="summary_audio_config_list">為家庭電影院系統啟用 5.1 或 7.1 環場音效</string>
+    <string name="title_checkbox_vr_virtual_surround">頭戴裝置虛擬環場音效</string>
+    <string name="summary_checkbox_vr_virtual_surround">將 5.1 或 7.1 的每個聲道放置在您周圍並以立體聲輸出，轉頭時聲音會固定在螢幕方向。需要在上方選擇 5.1 或 7.1，且主機與遊戲需輸出環場音效。</string>
+    <string name="category_input_settings">輸入設定</string>
+    <string name="title_checkbox_touchscreen_trackpad">將觸控式螢幕作為觸控板使用</string>
+    <string name="summary_checkbox_touchscreen_trackpad">如果啟用，則將觸控式螢幕作為觸控板使用。 如果停用，則觸控式螢幕直接控制滑鼠游標。</string>
+    <string name="title_checkbox_multi_controller">自動偵測手把</string>
+    <string name="summary_checkbox_multi_controller">取消此項所有手把將視為一個手把</string>
+    <string name="title_checkbox_vibrate_fallback">用震動仿真遊戲低頻音</string>
+    <string name="summary_checkbox_vibrate_fallback">如果你的手把不支援震動，則震動裝置以仿真遊戲低頻音</string>
+    <string name="title_seekbar_deadzone">調整類比搖杆死區</string>
+    <string name="suffix_seekbar_deadzone">%</string>
+    <string name="title_checkbox_xb1_driver">Xbox 360/One USB 手把驅動程式</string>
+    <string name="summary_checkbox_xb1_driver">為缺少原生 Xbox 控制器支援的裝置啟用內建 USB 驅動程式</string>
+    <string name="title_checkbox_usb_bind_all">覆寫原生 Xbox 手把支援</string>
+    <string name="summary_checkbox_usb_bind_all">強制 Moonlight 的 USB 驅動程式接管所有受支援的原生 Xbox 控制器</string>
+    <string name="title_checkbox_mouse_emulation">透過手把仿真滑鼠</string>
+    <string name="summary_checkbox_mouse_emulation">長按開始鍵將手把切換為滑鼠模式</string>
+    <string name="title_checkbox_mouse_nav_buttons"> 啟用前進後退滑鼠鍵 </string>
+    <string name="summary_checkbox_mouse_nav_buttons">在一些支援不佳的裝置上啟用此項可能會使其右鍵失效</string>
+    <string name="title_checkbox_flip_face_buttons">反轉技能鍵</string>
+    <string name="summary_checkbox_flip_face_buttons">為手把和螢幕控制按鈕交換 A/B 和 X/Y 技能按鍵</string>
+    <string name="category_on_screen_controls_settings">螢幕控制按鈕設定</string>
+    <string name="title_checkbox_show_onscreen_controls">顯示螢幕控制按鈕</string>
+    <string name="summary_checkbox_show_onscreen_controls">在觸控式螢幕上顯示一層虛擬控制器</string>
+    <string name="title_checkbox_vibrate_osc"> 啟用震動 </string>
+    <string name="summary_checkbox_vibrate_osc">使用螢幕控制按鈕時震動裝置以仿真遊戲低頻音</string>
+    <string name="title_only_l3r3">僅顯示 L3 和 R3</string>
+    <string name="summary_only_l3r3">隱藏除 L3 和 R3 外的所有虛擬按鈕</string>
+    <string name="title_reset_osc">重設已儲存的螢幕控制按鈕版面配置</string>
+    <string name="summary_reset_osc">重設所有螢幕控制按鈕為預設大小和位置</string>
+    <string name="dialog_title_reset_osc">重設按鈕版面配置</string>
+    <string name="dialog_text_reset_osc">你確定要刪除已儲存的螢幕按鈕版面配置嗎？</string>
+    <string name="toast_reset_osc_success">螢幕控制按鈕已重設為預設值</string>
+    <string name="category_ui_settings">使用者介面設定</string>
+    <string name="title_language_list"> 語言 </string>
+    <string name="summary_language_list">選擇 Moonlight 顯示的語言</string>
+    <string name="title_checkbox_small_icon_mode"> 使用小圖示 </string>
+    <string name="summary_checkbox_small_icon_mode">使用小圖示以在螢幕上顯示更多應用程式</string>
+    <string name="category_host_settings">主機設定</string>
+    <string name="title_checkbox_enable_sops">最佳化遊戲設定</string>
+    <string name="summary_checkbox_enable_sops">允許 GFE 為最佳串流效果自動更改遊戲設定</string>
+    <string name="title_checkbox_host_audio">在電腦上播放音訊</string>
+    <string name="summary_checkbox_host_audio">在電腦和本裝置同時輸出音訊</string>
+    <string name="title_checkbox_auto_launch_desktop">自動開啟 Desktop</string>
+    <string name="summary_checkbox_auto_launch_desktop">點選電腦時，若主機有名為 Desktop 的應用程式，則直接啟動，不顯示應用程式清單</string>
+    <string name="category_advanced_settings">進階設定</string>
+    <string name="title_disable_frame_drop">永不丟失影格</string>
+    <string name="summary_disable_frame_drop">可能會減少在一些裝置上的卡頓，但會增加延時</string>
+    <string name="title_video_format">變更轉碼器設定</string>
+    <string name="summary_video_format">較新的轉碼器可以降低視訊頻寬需求 (若您的裝置支援)。如果主機軟體或 GPU 不支援，轉碼器選取項目可能會被忽略。</string>
+    <string name="title_enable_hdr">啟用 HDR (實驗性)</string>
+    <string name="summary_enable_hdr">在遊戲和 GPU 支援時以 HDR 模式串流，HDR 模式需要支援 HEVC Main 10 編碼的 GPU。</string>
+    <string name="title_enable_perf_overlay">串流時顯示效能資訊</string>
+    <string name="summary_enable_perf_overlay">在串流中顯示即時效能資訊。在 VR 模式下會顯示於虛擬螢幕上，並增加畫面扭曲 (Warp)、深度與推論時間統計。</string>
+    <string name="title_enable_post_stream_toast">串流後顯示延時資訊</string>
+    <string name="summary_enable_post_stream_toast">串流結束後顯示延時資訊</string>
+    <string name="title_osc_opacity">變更螢幕控制按鈕透明度</string>
+    <string name="dialog_title_osc_opacity">變更不透明度</string>
+    <string name="suffix_osc_opacity">%</string>
+    <string name="summary_osc_opacity">使螢幕控制按钮變得更透明/更不透明</string>
+    <string name="suffix_seekbar_bitrate_mbps">Mbps</string>
+    <string name="resolution_prefix_native">原生</string>
+    <string name="text_native_res_dialog">原生解析度或 FPS 可能不受串流伺服器支援，您可能需要為主機手動設定相符的自訂顯示模式。
+\n
+\n如果您選擇在 NVIDIA 控制面板中建立自訂解析度以符合您的螢幕設定，請確保您已閱讀並理解 NVIDIA 關於可能導致監視器損毀和電腦不穩定以及其他潛在問題的警告。
+\n
+\n對於您在您的電腦上建立自訂解析度而導致的任何問題，我們概不負責。
+\n
+\n您的顯示器可能不支援必要的顯示組態。如果是這樣，您可以嘗試設定虛擬監視器。最后，如果您的裝置或主機不支援以特定解析度或重新整理速率串流，只能說您運氣欠佳了。</string>
+    <string name="title_native_res_dialog">原生解析度警告</string>
+    <string name="applist_menu_hide_app">隱藏遊戲</string>
+    <string name="check_ports_msg">檢查您的防火牆和通訊埠轉送規則中的通訊埠：</string>
+    <string name="early_termination_error">您的主機電腦在開始串流時出了點問題。
+\n
+\n請確保沒有在主機電腦上開啟任何受 DRM 保護的內容。您也可以嘗試重新開機主機電腦。</string>
+    <string name="no_frame_received_error">您的網路連線品質不佳。降低視訊位元速率設定或更換更快的連線。</string>
+    <string name="no_video_received_error">沒有接收到來自主機的視訊。</string>
+    <string name="video_decoder_init_failed">無法初始化視訊解碼器，您的裝置可能不支援選取的解析度或影格速率。</string>
+    <string name="nettest_text_blocked">您裝置目前的網路連線封鎖了 Moonlight。連線到該網路時可能無法透過網際網路串流。</string>
+    <string name="nettest_text_failure">您裝置目前的網路連線似乎封鎖了 Moonlight。連線到該網路時可能無法透過網際網路串流。
+\n
+\n以下網路通訊埠被封鎖：
+\n</string>
+    <string name="nettest_text_inconclusive">由於沒有 Moonlight 連線測試伺服器可供訪問，因此無法執行網路測試。請檢查您的 Internet 連線或稍後再試。</string>
+    <string name="nettest_text_success">您的網路似乎沒有封鎖 Moonlight。如果仍然無法連線，請檢查您電腦的防火牆設定。
+\n
+\n如果您是嘗試透過網際網路串流，請在您的電腦上安裝 Moonlight Internet Hosting Tool，然後執行裡面的 Internet Streaming Tester 來檢查電腦的網際網路連線。</string>
+    <string name="nettest_title_done">網路檢測完畢</string>
+    <string name="nettest_text_waiting">Moonlight 正在測試您的網路連線以確認必要連接埠是否被封鎖。
+\n
+\n可能需要等待一些時間…</string>
+    <string name="nettest_title_waiting">正在測試網路連線</string>
+    <string name="pcview_menu_test_network">測試網路連線</string>
+    <string name="pcview_menu_header_unknown">正在重新整理</string>
+    <string name="pcview_menu_header_offline">離線</string>
+    <string name="pcview_menu_header_online">線上</string>
+    <string name="perf_overlay_netlatency">平均網路延時：%1$d ms (抖動：%2$d ms)</string>
+    <string name="perf_overlay_streamdetails">視訊串流：%1$s %2$.2f FPS</string>
+    <string name="resolution_prefix_native_fullscreen">原生全螢幕</string>
+    <!-- Array strings -->
+    <string name="audioconf_stereo">立體聲</string>
+    <string name="audioconf_51surround">5.1 環場音效</string>
+    <string name="audioconf_71surround">7.1 環場音效</string>
+    <string name="videoformat_auto">自動 (建議)</string>
+    <string name="videoformat_hevcalways">優先使用 HEVC</string>
+    <string name="resolution_4k">4K</string>
+    <string name="fps_30">30 FPS</string>
+    <string name="fps_60">60 FPS</string>
+    <string name="fps_90">90 FPS</string>
+    <string name="fps_120">120 FPS</string>
+    <string name="resolution_360p">360P</string>
+    <string name="resolution_720p">720P</string>
+    <string name="resolution_480p">480P</string>
+    <string name="resolution_1080p">1080P</string>
+    <string name="resolution_1440p">1440P</string>
+    <string name="title_frame_pacing">視訊影格調步</string>
+    <string name="summary_frame_pacing">指定如何平衡視訊延遲和平滑度</string>
+    <string name="pacing_balanced">平衡</string>
+    <string name="pacing_smoothness">偏好平滑視訊 (可能顯著提高延遲)</string>
+    <string name="pacing_latency">偏好低延遲</string>
+    <string name="pacing_balanced_alt">FPS 上限平衡</string>
+    <string name="category_help">說明</string>
+    <string name="title_troubleshooting">疑難排解指南</string>
+    <string name="summary_setup_guide">檢視關於如何設定你的遊戲電腦以進行串流的指示</string>
+    <string name="title_privacy_policy">隱私權政策</string>
+    <string name="title_setup_guide">設定指南</string>
+    <string name="summary_troubleshooting">檢視診斷和修正常見串流問題的提示</string>
+    <string name="summary_privacy_policy">檢視 Moonlight 的隱私權政策</string>
+    <string name="summary_seekbar_deadzone">注意：有些遊戲可以強制執行一個比 Moonlight 設定大的死區。</string>
+    <string name="title_checkbox_absolute_mouse_mode">遠端桌面滑鼠模式</string>
+    <string name="summary_checkbox_absolute_mouse_mode">這可以讓滑鼠在遠端桌面使用中的加速表現更加自然，但與很多遊戲不相容。</string>
+    <string name="title_checkbox_enable_audiofx">啟用系統等化器支援</string>
+    <string name="summary_checkbox_enable_audiofx">允許音訊效果在串流中發揮作用，但可能會增加音訊延遲</string>
+    <string name="resolution_prefix_native_landscape">(橫向)</string>
+    <string name="resolution_prefix_native_portrait">(直向)</string>
+    <string name="title_checkbox_reduce_refresh_rate">允許減小重新整理率</string>
+    <string name="summary_checkbox_reduce_refresh_rate">更低的顯示器重新整理速率可在犧牲一些額外視訊延遲的狀況下節省電力</string>
+    <string name="frame_conversion_error">主機電腦回報了一個嚴重的視訊編碼錯誤。
+\n
+\n嘗試停用 HDR 模式，變更串流解析度，或變更您的主機電腦的顯示器解析度。</string>
+    <string name="title_full_range">強制全範圍視訊 (實驗性)</string>
+    <string name="summary_full_range">若您的裝置無法正確地顯示全範圍視訊內容，將會導致淺色區域和深色區域的細節遺失。</string>
+    <string name="pair_pairing_help">若您的主機電腦正在執行 Sunshine，請導覽至 Sunshine 網頁 UI 並輸入 PIN 碼。</string>
+    <string name="pcview_menu_eol">NVIDIA GameStream 終止服務</string>
+    <string name="fps_suffix_fps">FPS</string>
+    <string name="title_native_fps_dialog">原生 FPS 警告</string>
+    <string name="category_gamepad_settings">手把設定</string>
+    <string name="title_checkbox_gamepad_touchpad_as_mouse">一律使用觸摸板控制滑鼠</string>
+    <string name="summary_checkbox_gamepad_motion_sensors">在使用動態感測器模擬手把時啟用支援的主機以要求動態感測器資料，若動態感測器未在遊戲中使用，停用後可能會輕微降低電力和網路使用量。</string>
+    <string name="videoformat_h264always">偏好 H.264</string>
+    <string name="perf_overlay_hostprocessinglatency">主機處理延遲最小值/最大值/平均值：%1$.1f/%2$.1f/%3$.1f ms</string>
+    <string name="summary_checkbox_gamepad_touchpad_as_mouse">強制手把觸摸板輸入以控制主機滑鼠，即使在使用觸摸板模擬手把時。</string>
+    <string name="title_checkbox_gamepad_motion_sensors">一律使用手把動態感測器</string>
+    <string name="videoformat_av1always">偏好 AV1 (實驗性)</string>
+    <string name="toast_controller_type_changed">手把類型可能會因動態感測器模擬而變更</string>
+    <string name="summary_checkbox_gamepad_motion_fallback">如果您連線的手把或 Android 版本不支援手把感測器，請使用裝置內建的動態感測器。
+\n注意：啟用此選項可能會導致您的手把在主機被辨識為 PlayStation 控制器。</string>
+    <string name="title_checkbox_gamepad_motion_fallback">模擬手把動態感測器支援</string>
+
+    <!-- VR Settings -->
+    <string name="category_vr_settings">VR 設定</string>
+    <string name="category_vr_debug">VR 偵錯</string>
+    <string name="title_enable_vr_mode">以 VR 模式串流</string>
+    <string name="summary_enable_vr_mode">在沉浸式 VR 空間中的虛擬螢幕上顯示串流畫面。僅限頭戴式裝置，且是唯一支援 3D 效果的模式。</string>
+    <string name="title_vr_head_locked">頭部鎖定螢幕</string>
+    <string name="summary_vr_head_locked">將虛擬螢幕固定在視野正前方，而非錨定在真實空間世界中</string>
+    <string name="title_seekbar_vr_distance">螢幕距離</string>
+    <string name="summary_seekbar_vr_distance">虛擬螢幕與視點的距離</string>
+    <string name="title_seekbar_vr_screen_size">螢幕寬度</string>
+    <string name="summary_seekbar_vr_screen_size">虛擬螢幕的顯示寬度</string>
+    <string name="title_seekbar_vr_curvature">螢幕曲率</string>
+    <string name="summary_seekbar_vr_curvature">0 為平面，數值越高螢幕環繞弧度越大</string>
+    <string name="suffix_seekbar_vr_meters">公尺</string>
+    <string name="title_vr_pointer">使用控制器模擬滑鼠</string>
+    <string name="summary_vr_pointer">使用控制器指向螢幕以移動主機滑鼠。扳機鍵為左鍵點擊，A 或 X 鍵為右鍵點擊，搖桿上下捲動。在需要原生滑鼠控制的遊戲中，可按下搖桿關閉指向功能。</string>
+    <string name="title_vr_pointer_sleep">控制器靜止時暫停游標</string>
+    <string name="summary_vr_pointer_sleep">控制器靜止幾秒後游標會隱藏，移動控制器或推動搖桿時恢復。關閉此項可讓游標保持啟用，即使游標不在螢幕上，搖桿也能捲動。</string>
+    <string name="title_vr_show_ray">顯示控制器射線</string>
+    <string name="summary_vr_show_ray">從控制器射向螢幕的光束。玩光槍遊戲時可將其關閉：落點處的光點仍會保留，按鍵照常生效；開啟面板時射線會重新出現，螢幕下方的射線按鈕可在本次階段中切換它。</string>
+    <string name="title_vr_controller_model">顯示控制器</string>
+    <string name="summary_vr_controller_model">在每隻手中真實控制器的位置繪製一個簡單的控制器模型。穿透模式下不顯示，因為此時可以看到真實控制器；改用手勢追蹤時也不顯示。</string>
+    <string name="title_vr_head_aim">頭部控制滑鼠</string>
+    <string name="summary_vr_head_aim">僅在螢幕鎖定到頭部時生效：轉動頭部會像遊戲的視角控制一樣移動滑鼠，適合第一人稱遊戲。控制器游標和實體滑鼠仍可同時使用。開啟面板時會暫停，螢幕下方的頭部控制按鈕可在本次階段中切換它。</string>
+    <string name="title_seekbar_vr_head_aim_sensitivity">頭部控制靈敏度</string>
+    <string name="summary_seekbar_vr_head_aim_sensitivity">頭部每轉動一度時滑鼠移動的距離。配合遊戲本身的滑鼠靈敏度調整，直到視角轉動的幅度與頭部一致。頭戴裝置內設定面板的「螢幕」分頁調整的是同一個數值。</string>
+    <string name="title_seekbar_vr_head_aim_deadzone">頭部控制死區</string>
+    <string name="summary_seekbar_vr_head_aim_deadzone">頭部轉動慢於此速度時不傳送任何移動，可避免頭部靜止時追蹤抖動移動滑鼠。設為 0 則傳送所有移動。</string>
+    <string name="title_vr_gamepad_toggle">遊戲控制器模式快速鍵</string>
+    <string name="summary_vr_gamepad_toggle">目前：%s。遊戲控制器模式會把兩個控制器合起來在電腦上作為一個 Xbox 控制器：搖桿、A、B、X、Y 鍵、扳機、握把作為肩鍵、搖桿按下，以及左手選單鍵作為 Start。它只能在階段中透過設定面板的「顯示」分頁或螢幕下方的遊戲控制器按鈕開啟，每次階段開始時控制器都是游標。之後可以用此快速鍵在兩者之間切換。選擇搖桿或扳機與握把時，這些按鍵傳給遊戲會稍晚一點，因為快速鍵要先判斷它們是不是在按快速鍵。</string>
+    <string name="vr_gamepad_toggle_menu_grip">按住左手選單鍵和左手握把</string>
+    <string name="vr_gamepad_toggle_sticks">同時按下兩個搖桿 (L3 + R3)</string>
+    <string name="vr_gamepad_toggle_triggers_grips">同時握緊兩個扳機和兩個握把</string>
+    <string name="title_vr_click_sound">按下面板時發出點擊聲</string>
+    <string name="summary_vr_click_sound">在頭戴裝置中按下面板、按鈕或按鍵時發出短促的點擊聲。它透過系統音效播放，與串流音訊分開。</string>
+    <string name="title_vr_gaze">注視瞄準 (Look to point)</string>
+    <string name="summary_vr_gaze">在支援眼球追蹤的頭戴裝置上，透過注視螢幕進行瞄準，用任一隻手捏合手指點擊。按下控制器上的按鍵後由控制器接管游標，直到將其放下；若眼球追蹤遺失 10 秒，將改由雙手指向，直到恢復。</string>
+    <string name="title_vr_hand_tracking">手勢追蹤</string>
+    <string name="summary_vr_hand_tracking">放下控制器時可透過手勢指向與捏合操作。關閉此項可僅使用控制器。在串流階段中，用拇指和食指快速捏合三次，可鎖定手勢互動而無需離開遊戲；再快速捏合三次即可解鎖。</string>
+    <string name="vr_hand_hint_title">手勢追蹤已開啟。</string>
+    <string name="vr_hand_hint_body">用拇指和食指快速捏合三次即可鎖定手勢，避免誤捏造成點擊；再快速捏合三次即可解鎖。</string>
+    <string name="vr_hand_hint_never">不再顯示</string>
+    <string name="vr_kofi_title">在 Ko-fi 上支持 Moonlight XR</string>
+    <string name="vr_kofi_scan">用手機掃描此 QR 碼。</string>
+    <string name="vr_kofi_free">完全自願：Moonlight XR 免費，並將一直免費。</string>
+    <string name="vr_kofi_close">關閉</string>
+    <string name="title_vr_reset_pose">重設螢幕位置</string>
+    <string name="summary_vr_reset_pose">將螢幕恢復至上方設定的距離和寬度，復原使用控制器進行的移動或縮放操作</string>
+    <string name="toast_vr_reset_pose">螢幕位置已重設</string>
+    <string name="title_vr_passthrough">穿透模式 (Passthrough)</string>
+    <string name="summary_vr_passthrough">開啟環境穿透。請注意此模式會消耗更多系統資源，若串流出現延遲或卡頓請停用</string>
+    <string name="title_vr_environment">環境</string>
+    <string name="summary_vr_environment">目前：%s。階段開始時螢幕周圍的環境。在頭戴裝置中透過螢幕下方的按鈕選擇環境，也會變更此設定。</string>
+    <string name="title_vr_doff_grace">摘下頭戴裝置時保留串流一分鐘</string>
+    <string name="summary_vr_doff_grace">短暫摘下頭戴裝置時，串流會靜音等待最多 60 秒，重新戴上後繼續。關閉後，摘下頭戴裝置會立即結束串流。</string>
+    <string name="vr_environment_passthrough">穿透 (Passthrough)</string>
+    <string name="vr_environment_void">黑色虛空 (Black void)</string>
+    <string name="vr_environment_home_theater">家庭劇院 (Home Theater)</string>
+    <string name="vr_environment_grand_cinema">大戲院 (Grand Cinema)</string>
+    <string name="vr_environment_synthwave">合成波 (Synthwave)</string>
+    <string name="title_vr_depth_source">即時 3D 模式</string>
+    <string name="summary_vr_depth_source">選擇即時 3D 模式，包含多種測試圖樣。</string>
+    <string name="title_vr_env_res">虛擬環境解析度</string>
+    <string name="summary_vr_env_res">螢幕周圍 3D 虛擬房間的渲染清晰度。畫質越高越消耗 GPU 效能。極致為實驗性功能，可能導致延遲或掉影格。</string>
+    <string name="title_seekbar_vr_picture_brightness">畫面亮度</string>
+    <string name="summary_seekbar_vr_picture_brightness">提高或降低頭戴裝置中整個畫面的亮度。0 為串流的原始畫面。頭戴裝置內設定面板的「畫面」分頁調整的是同樣的四個數值。</string>
+    <string name="title_seekbar_vr_picture_contrast">畫面對比</string>
+    <string name="summary_seekbar_vr_picture_contrast">以中灰為中心拉開或收攏畫面的明暗層次。100% 為串流的原始畫面。</string>
+    <string name="title_seekbar_vr_picture_gamma">畫面伽瑪</string>
+    <string name="summary_seekbar_vr_picture_gamma">高於 1.00 會提亮中間調與暗部，同時不會讓黑色和白色發灰，對偏暗的遊戲通常比調亮度更合適。1.00 為串流的原始畫面。</string>
+    <string name="title_seekbar_vr_picture_saturation">畫面飽和度</string>
+    <string name="summary_seekbar_vr_picture_saturation">畫面色彩的濃淡。0% 為黑白，100% 為串流的原始畫面。</string>
+    <string name="title_vr_sharpening">虛擬螢幕銳化</string>
+    <string name="summary_vr_sharpening">在頭戴裝置合成器中銳化虛擬螢幕。在受支援的頭戴裝置上幾乎不增加額外開銷；若執行階段不支援此擴充功能則自動略過。</string>
+    <string name="title_vr_supersampling">虛擬螢幕超取樣</string>
+    <string name="summary_vr_supersampling">在頭戴裝置合成器中對虛擬螢幕進行超取樣，讓螢幕顯示得比串流畫面小時閃爍的細節保持穩定。會佔用少量合成器 GPU 時間；若執行階段不支援此擴充功能則自動略過。</string>
+    <string name="title_vr_depth_debug">顯示深度圖</string>
+    <string name="summary_vr_depth_debug">將視訊渲染為灰階深度圖而非正常畫面，用於檢查 3D 深度品質</string>
+    <string name="title_vr_eye_swap">對調左右眼</string>
+    <string name="summary_vr_eye_swap">在立體模式下對調左眼與右眼的影像</string>
+    <string name="vr_unavailable_flat">無法連線至頭戴裝置的 OpenXR 執行階段，因此串流將以平面面板顯示。請更新頭戴裝置系統軟體，或在設定中關閉「以 VR 模式串流」。</string>
+    <string name="vr_unavailable_flat_reason">%1$s\n串流將以平面面板顯示。請更新頭戴裝置系統軟體，或在設定中關閉「以 VR 模式串流」。</string>
+    <string name="vr_fail_no_runtime">沒有 OpenXR 執行階段回應</string>
+    <string name="vr_fail_extensions">OpenXR 執行階段未提供 %1$s</string>
+    <string name="vr_fail_instance">執行階段拒絕了執行個體（%1$s）</string>
+    <string name="vr_fail_system">執行階段找不到就緒的頭戴裝置（%1$s）</string>
+    <string name="vr_fail_graphics">執行階段拒絕了 OpenGL ES（%1$s）</string>
+    <string name="vr_fail_egl">頭戴裝置的圖形驅動程式出錯（%1$s）</string>
+    <string name="vr_fail_session">執行階段拒絕了工作階段（%1$s）</string>
+    <string name="vr_fail_space">執行階段拒絕了追蹤空間（%1$s）</string>
+    <string name="vr_fail_swapchain">執行階段拒絕了視訊交換鏈（%1$s）</string>
+    <string name="vr_fail_gl">算繪器的著色器編譯失敗</string>
+    <string name="vr_fail_timeout">執行階段在 %1$s 秒內沒有回應</string>
+    <string name="vr_fail_unknown">VR 工作階段無法啟動</string>
+    <string name="vr_toast_rate">顯示更新率 %1$d Hz</string>
+    <string name="vr_toast_hands_locked">手部已鎖定</string>
+    <string name="vr_toast_hands_unlocked">手部已解鎖</string>
+    <string name="vr_toast_3d_off">3D 已關閉</string>
+    <string name="vr_toast_3d_on">3D 已開啟</string>
+    <string name="vr_toast_head_aim_on">頭部控制已開啟</string>
+    <string name="vr_toast_head_aim_on_more">轉動頭部即可移動滑鼠</string>
+    <string name="vr_toast_head_aim_off">頭部控制已關閉</string>
+    <string name="vr_toast_gamepad_mode">遊戲控制器模式</string>
+    <string name="vr_toast_gamepad_back_menu_grip">按住左手選單鍵和左手握把即可回到游標</string>
+    <string name="vr_toast_gamepad_back_sticks">同時按下兩個搖桿即可回到游標</string>
+    <string name="vr_toast_gamepad_back_triggers_grips">同時握緊兩個扳機和兩個握把即可回到游標</string>
+    <string name="vr_toast_pointer_mode">游標模式</string>
+    <string name="vr_report_note_hint">發生問題時您正在做什麼？</string>
+    <string name="vr_report_optional">選填</string>
+    <string name="vr_report_email_bad">這看起來不像電子郵件地址</string>
+    <string name="vr_report_sends">將傳送您的說明、頭戴裝置與版本資訊、您的設定以及應用程式記錄檔，記錄檔中可能包含您電腦在區域網路中的名稱與位址。在您按下「傳送」之前不會傳送任何內容。</string>
+    <string name="vr_report_not_written">無法儲存報告</string>
+    <string name="vr_battery">電量 %1$d%%</string>
+
+    <!-- Bug Report strings -->
+    <string name="title_bug_report">回報問題</string>
+    <string name="summary_bug_report">彙整您的說明、裝置資訊、串流設定與記錄檔，並傳送給開發團隊</string>
+    <string name="category_about">關於</string>
+    <string name="about_version">Moonlight XR %1$s，提交 %2$s</string>
+    <string name="about_version_no_commit">Moonlight XR %1$s</string>
+    <string name="title_about_licence">授權條款：GPLv3</string>
+    <string name="title_checkbox_check_updates">檢查更新</string>
+    <string name="summary_checkbox_check_updates">應用程式每天向 GitHub 查詢一次最新版本，如有較新的版本會顯示提示。除了應用程式版本外不會傳送任何內容，也不會下載任何內容。</string>
+    <string name="update_notice">Moonlight XR %1$s 已推出</string>
+    <string name="update_notice_view">檢視</string>
+    <string name="update_notice_dismiss">忽略</string>
+    <string name="bug_report_intro">請描述遇到的問題以及預期行為。報告將打包您的訊息、應用程式版本、頭戴裝置型號、串流設定與記錄檔（記錄檔中可能包含您電腦在區域網路中的名稱與位址），並傳送至 %1$s。\n\n記錄檔路徑：%2$s</string>
+    <string name="bug_report_log_off">已關閉。請先開啟「儲存記錄檔」並重現問題，否則報告將不包含記錄。</string>
+    <string name="bug_report_email_hint">您的電子郵件地址 (用於接收回覆)</string>
+    <string name="bug_report_message_hint">發生了什麼狀況？</string>
+    <string name="bug_report_send_direct">傳送</string>
+    <string name="bug_report_sending">正在傳送報告…</string>
+    <string name="bug_report_sent">報告已傳送</string>
+    <string name="bug_report_not_sent_at">傳送失敗，已儲存至</string>
+    <string name="bug_report_busy_at">伺服器忙碌中，已儲存至</string>
+    <string name="bug_report_no_collector_at">此版本未設定收集伺服器，已儲存至</string>
+    <string name="bug_report_failed">無法寫入報告：%1$s</string>
+
+    <!-- VR Debug strings -->
+    <string name="title_vr_file_log">儲存記錄檔</string>
+    <string name="summary_vr_file_log">在 Download/MoonlightXR 保留純文字記錄檔，頭戴裝置上的檔案管理器可以找到它，並可將其附加到錯誤回報中。記錄檔中可能包含您電腦在區域網路中的名稱與位址。檔案達 5 MB 時會輪替至 moonlight.previous.log，兩者合計絕不超過 10 MB。變更此設定後請重新啟動應用程式以生效。</string>
+    <string name="title_seekbar_vr_inference_cadence">每秒深度更新次數</string>
+    <string name="summary_seekbar_vr_inference_cadence">3D 每秒產生的深度圖數量。數值越低頭戴裝置負載越小，但深度延遲會更明顯。頭戴裝置跟不上時，會先將此值暫時減半，然後才降低顯示更新率。</string>
+    <string name="suffix_seekbar_vr_inference_cadence">次/秒</string>
+    <string name="title_seekbar_vr_separation">雙眼立體視差</string>
+    <string name="summary_seekbar_vr_separation">兩眼視野相隔多遠 (以影格寬度的百分比表示)。超過約 0.5% 後畫面看起來不會更深，反而更容易造成眼睛疲勞。</string>
+    <string name="suffix_seekbar_vr_percent">％</string>
+    <string name="suffix_seekbar_vr_head_aim_sensitivity">像素/度</string>
+    <string name="suffix_seekbar_vr_head_aim_deadzone">度/秒</string>
+    <string name="gen1_warning_title">偵測到上一代頭戴裝置</string>
+    <string name="gen1_warning_text">此應用程式專為 Quest 3 / Pico 4 Ultra 或更新的頭戴裝置設計。在 Quest 2 / Pico 4 等早期世代頭戴裝置上的效能尚未充分測試，預期表現可能不佳。已自動套用較低的效能設定檔以協助維持良好體驗。關閉即時 3D 能大幅提升效能，但這可能正是您下載此應用程式的原因！特此溫馨提醒，祝您使用愉快！</string>
+    <string name="warning_dialog_never_again">不再顯示此提示</string>
+    <string name="title_enable_gl_render_path">透過 OpenGL 渲染 (實驗性)</string>
+    <string name="summary_enable_gl_render_path">在顯示前將解碼後的視訊導向 OpenGL 紋理。視覺效果應與一般渲染完全相同。開啟此項時，HDR 串流將進行色調限制。</string>
+
+    <!-- Other missing UI strings -->
+    <string name="title_show_guide_button">顯示導覽鍵 (Guide 鍵)</string>
+    <string name="summary_show_guide_button">在螢幕虛擬按鍵中顯示導覽/主畫面鍵</string>
+    <string name="title_settings_back">返回</string>
+    <string name="summary_settings_back">返回電腦清單</string>
+    <string name="local_network_rationale">Moonlight 需要區域網路權限以搜尋並連線至附近的電腦</string>
+    <string name="fps_72">72 FPS</string>
+
+    <!-- VR Array strings -->
+    <string name="vr_depth_source_zipdepth">V2.0 - 基於 ZipDepth 模型的 3D（推薦）</string>
+    <string name="vr_depth_source_off">關閉</string>
+    <string name="vr_depth_source_model">V1.0 - 基於 MiDaS 模型的 3D</string>
+    <string name="vr_depth_source_flat">測試圖樣：平面</string>
+    <string name="vr_depth_source_ramp">測試圖樣：水平漸變斜坡</string>
+    <string name="vr_depth_source_blob">測試圖樣：中心斑塊</string>
+    <string name="vr_depth_source_eyetest">測試圖樣：眼別路由</string>
+    <string name="vr_depth_source_shifttest">測試圖樣：位移量測</string>
+
+    <string name="vr_env_res_low">低 (省電/早期裝置)</string>
+    <string name="vr_env_res_standard">標準 (建議)</string>
+    <string name="vr_env_res_high">高解析度</string>
+    <string name="vr_env_res_ultra">極致 (實驗性/高耗能)</string>
+
+    <string name="vr_sharpening_off">關閉</string>
+    <string name="vr_sharpening_normal">標準</string>
+    <string name="vr_sharpening_quality">高畫質</string>
+    <string name="vr_supersampling_off">關閉</string>
+    <string name="vr_supersampling_normal">標準</string>
+    <string name="vr_supersampling_quality">高畫質</string>
+
+    <string name="vr_file_log_off">關閉</string>
+    <string name="vr_file_log_basic">僅警告與錯誤</string>
+    <string name="vr_file_log_verbose">詳細記錄</string>
+    <!-- Start application messages -->
+    <string name="error_code_prefix">錯誤代碼：</string>
+    <!-- Preferences -->
+    <string name="title_seekbar_vibrate_fallback_strength">調整仿真震動強度</string>
+    <string name="summary_seekbar_vibrate_fallback_strength">增強或減弱裝置的震動強度</string>
+    <string name="suffix_seekbar_vibrate_fallback_strength">%</string>
+    <!-- The panels inside the session. They are drawn at a fixed size, so keep these short. -->
+    <string name="vr_panel_tab_screen">螢幕</string>
+    <string name="vr_panel_tab_display">顯示</string>
+    <string name="vr_panel_3d">3D</string>
+    <string name="vr_panel_tab_picture">畫面</string>
+    <string name="vr_panel_tab_about">關於</string>
+    <string name="vr_panel_tab_room">房間</string>
+    <string name="vr_panel_distance">距離</string>
+    <string name="vr_panel_height">高度</string>
+    <string name="vr_panel_tilt">傾斜</string>
+    <string name="vr_panel_rotate">旋轉</string>
+    <string name="vr_panel_curve">曲率</string>
+    <string name="vr_panel_size">大小</string>
+    <string name="vr_panel_aim_sensitivity">頭部控制靈敏度</string>
+    <string name="vr_panel_aim_dead_zone">頭部控制死區</string>
+    <!-- Where head aim's rows are greyed out: the screen is not locked to the head. Names the Head locked row. -->
+    <string name="vr_panel_needs_head_lock">需開啟「頭部鎖定」</string>
+    <string name="vr_panel_not_in_room">房間中無法使用</string>
+    <string name="vr_panel_reset">重設</string>
+    <string name="vr_panel_brightness">亮度</string>
+    <string name="vr_panel_glow">光暈</string>
+    <string name="vr_panel_screen_light">螢幕光照</string>
+    <string name="vr_panel_light_level">光照強度</string>
+    <string name="vr_panel_off">關閉</string>
+    <string name="vr_panel_on">開啟</string>
+    <string name="vr_panel_fixed_size">此房間的螢幕大小固定</string>
+    <string name="vr_panel_sharpen">銳化</string>
+    <string name="vr_panel_supersample">超取樣</string>
+    <string name="vr_panel_stats">統計資訊</string>
+    <string name="vr_panel_head_locked">頭部鎖定</string>
+    <string name="vr_panel_head_aim">頭部控制</string>
+    <string name="vr_panel_controllers">控制器</string>
+    <string name="vr_panel_pointer_sleep">游標休眠</string>
+    <string name="vr_panel_ray">射線</string>
+    <string name="vr_panel_controller_model">控制器模型</string>
+    <string name="vr_panel_click_sound">點擊聲</string>
+    <string name="vr_panel_normal">標準</string>
+    <string name="vr_panel_quality">高畫質</string>
+    <string name="vr_panel_pointer">游標</string>
+    <string name="vr_panel_gamepad">遊戲控制器</string>
+    <string name="vr_panel_glow_level">光暈強度</string>
+    <string name="vr_panel_shortcut_menu_grip">快速鍵：左手選單鍵 + 握把</string>
+    <string name="vr_panel_shortcut_sticks">快速鍵：同時按下兩個搖桿</string>
+    <string name="vr_panel_shortcut_triggers_grips">快速鍵：扳機 + 握把</string>
+    <string name="vr_panel_preset">預設組合</string>
+    <string name="vr_panel_comfort">舒適</string>
+    <string name="vr_panel_balanced">均衡</string>
+    <string name="vr_panel_strong">強烈</string>
+    <string name="vr_panel_depth">深度</string>
+    <string name="vr_panel_convergence">匯聚</string>
+    <string name="vr_panel_harder_on_eyes">眼睛較易疲勞</string>
+    <string name="vr_panel_3d_off_in_settings">3D 已在設定中關閉</string>
+    <string name="vr_panel_contrast">對比</string>
+    <string name="vr_panel_gamma">伽瑪</string>
+    <string name="vr_panel_saturation">飽和度</string>
+    <string name="vr_panel_version">版本 %1$s，提交 %2$s</string>
+    <string name="vr_panel_version_no_commit">版本 %1$s</string>
+    <!-- %1$s is where the log file is, like Download/MoonlightXR/moonlight.log -->
+    <string name="vr_panel_log_file">記錄檔：%1$s</string>
+    <string name="vr_panel_log_file_off">記錄檔：已關閉</string>
+    <string name="vr_panel_report_sends">傳送一則附有頭戴裝置資訊、設定和記錄的說明</string>
+    <string name="vr_panel_rooms">房間</string>
+    <!-- Keys on the keyboard inside the session, one key wide: Shift one and a half, space four -->
+    <string name="vr_key_shift">Shift</string>
+    <string name="vr_key_space">空白</string>
+    <string name="vr_key_enter">Enter</string>
+    <string name="vr_key_hide">收起</string>
+    <string name="vr_key_ctrl">Ctrl</string>
+    <string name="vr_key_alt">Alt</string>
+    <string name="vr_key_win">Win</string>
+    <string name="vr_exit_question">結束串流？</string>
+    <string name="vr_exit">結束</string>
+    <!-- Array strings -->
+    <string name="title_analog_scrolling">使用類比搖桿捲動</string>
+    <string name="summary_analog_scrolling">選擇在滑鼠模式下用來捲動的類比搖桿</string>
+    <string name="analogscroll_none">無（兩個搖桿都移動滑鼠）</string>
+    <string name="analogscroll_right">右類比搖桿</string>
+    <string name="analogscroll_left">左類比搖桿</string>
+</resources>

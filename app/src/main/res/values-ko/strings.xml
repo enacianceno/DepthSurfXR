@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shortcut strings -->
+    <string name="scut_deleted_pc">PC 삭제됨</string>
+    <string name="scut_not_paired">PC와 페어링되지 않음</string>
+    <!-- Help strings -->
+    <string name="help_loading_title">도움말 뷰어</string>
+    <string name="help_loading_msg">도움말 페이지 로딩중…</string>
+    <!-- PC view menu entries -->
+    <string name="pcview_menu_app_list">모든 게임 보기</string>
+    <string name="pcview_menu_pair_pc">PC와 페어링</string>
+    <string name="pcview_menu_unpair_pc">페어링 해제</string>
+    <string name="pcview_menu_send_wol">Wake-On-LAN request 보내기</string>
+    <string name="pcview_menu_delete_pc">PC 삭제</string>
+    <!-- Pair messages -->
+    <string name="pairing">페어링 중…</string>
+    <string name="pair_pc_offline">컴퓨터가 오프라인입니다</string>
+    <string name="pair_pc_ingame">컴퓨터가 아직 게임을 실행중입니다. 페어링 전 게임을 종료하세요.</string>
+    <string name="pair_pairing_title">페어링</string>
+    <string name="pair_pairing_msg">아래 PIN을 페어링 할 PC에 입력하세요:</string>
+    <string name="pair_incorrect_pin">PIN이 올바르지 않음</string>
+    <string name="pair_fail">페어링 실패</string>
+    <string name="pair_already_in_progress">페어링이 이미 진행중입니다</string>
+    <!-- WOL messages -->
+    <string name="wol_pc_online">컴퓨터가 온라인 상태입니다</string>
+    <string name="wol_no_mac">저장된 MAC 주소가 없기 때문에 PC를 켤 수 없습니다</string>
+    <string name="wol_waking_pc">PC를 깨우는 중…</string>
+    <string name="wol_waking_msg">PC를 켜는 데에 약간의 시간이 걸립니다. PC가 켜지지 않으면, Wake-On-Lan이 설정되어있는지 확인하세요.</string>
+    <string name="wol_fail">Wake-On-LAN 패킷을 보내는 데에 실패했습니다</string>
+    <!-- Unpair messages -->
+    <string name="unpairing">페어링 해제중…</string>
+    <string name="unpair_success">페어링 해제 완료</string>
+    <string name="unpair_fail">페어링 해제 실패</string>
+    <string name="unpair_error">장치가 페어링되지 않음</string>
+    <!-- Errors -->
+    <string name="error_pc_offline">컴퓨터가 오프라인 상태입니다</string>
+    <string name="error_manager_not_running">ComputerManager 서비스가 실행되지 않고 있습니다. 잠시 기다리거나 앱을 다시 시작하세요.</string>
+    <string name="error_unknown_host">호스트 응답에 실패함</string>
+    <string name="error_404">GFE가 HTTP 404에러를 보냈습니다. 지원되는 GPU가 설치되어 있는지 확인하세요.
+	    원격 데스트톱 응용 프로그램을 사용하는 것도 이 에러를 유발할 수 있습니다. PC를 다시 시작하거나 Geforce Experience를 다시 설치해보세요. 
+    </string>
+    <!-- Start application messages -->
+    <string name="conn_establishing_title">연결 시도중</string>
+    <string name="conn_establishing_msg">연결 시작</string>
+    <string name="conn_metered">경고: 데이터 요금이 부과될 수 있습니다!</string>
+    <string name="conn_client_latency">평균 프레임 디코딩 지연:</string>
+    <string name="conn_client_latency_hw">하드웨어 디코더 지연:</string>
+    <string name="conn_hardware_latency">평균 하드웨어 디코딩 지연:</string>
+    <string name="conn_starting">시작 중</string>
+    <string name="conn_error_title">연결 오류</string>
+    <string name="conn_error_msg">시작 실패</string>
+    <string name="conn_terminated_title">연결 종료 됨</string>
+    <string name="conn_terminated_msg">연결이 종료되었습니다.</string>
+    <!-- General strings -->
+    <string name="ip_hint">호스트 PC의 IP 주소</string>
+    <string name="searching_pc">로컬 네트워크의 호스트 PC를 검색중…
+\n
+\n 호스트 PC에서 Sunshine이 실행 중인지 또는 GeForce Experience SHIELD 설정에서 GameStream이 활성화되어 있는지 확인하십시오.</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+    <string name="lost_connection">PC 연결 끊김</string>
+    <string name="help">도움말</string>
+    <!-- AppList activity -->
+    <string name="applist_connect_msg">PC에 연결중…</string>
+    <string name="applist_menu_resume">세션 계속</string>
+    <string name="applist_menu_quit">세션 종료</string>
+    <string name="applist_menu_quit_and_start">현재 게임 종료 후 시작</string>
+    <string name="applist_menu_cancel">취소</string>
+    <string name="applist_refresh_title">앱 리스트</string>
+    <string name="applist_refresh_msg">앱 로드 중…</string>
+    <string name="applist_refresh_error_title">오류</string>
+    <string name="applist_refresh_error_msg">앱 리스트를 얻는데 실패함</string>
+    <string name="applist_quit_app">종료중</string>
+    <string name="applist_quit_success">종료됨</string>
+    <string name="applist_quit_fail">종료 실패</string>
+    <string name="applist_quit_confirmation">실행되고 있는 앱을 종료하길 원하시나요\? 모든 저장되지 않은 데이터가 삭제됩니다.</string>
+    <!-- Add computer manually activity -->
+    <string name="title_add_pc">수동으로 PC 추가</string>
+    <string name="msg_add_pc">PC에 연결 중…</string>
+    <string name="addpc_fail">지정된 컴퓨터에 연결하는 데에 실패했습니다. PC의 방화벽과 적절한 포트 설정을 확인하세요.</string>
+    <string name="addpc_success">컴퓨터 추가 성공</string>
+    <string name="addpc_unknown_host">PC의 IP주소를 확인할 수 없습니다. 주소에 오타가 없는지 확인하십시오.</string>
+    <string name="addpc_enter_ip">반드시 IP주소를 입력해야 합니다</string>
+    <!-- Preferences -->
+    <string name="category_basic_settings">기본 설정</string>
+    <string name="title_resolution_list">해상도 설정</string>
+    <string name="summary_resolution_list">해상도가 높을수록 선명하지만 저사양기기를 사용하거나 네트워크 연결이 느리다면 해상도를 낮추십시오.</string>
+    <string name="title_seekbar_bitrate">비트레이트 타겟 지정</string>
+    <string name="summary_seekbar_bitrate">낮은 비트레이트는 끊김을 줄이고, 높은 비트레이트는 품질을 높입니다.</string>
+    <string name="title_checkbox_stretch_video">화면을 늘려 전체화면으로 사용</string>
+    <string name="title_checkbox_disable_warnings">경고 메세지 끄기</string>
+    <string name="summary_checkbox_disable_warnings">화면 상의 연결 경고 메세지를 스트리밍 중에 비활성화합니다</string>
+    <string name="category_audio_settings">오디오 설정</string>
+    <string name="title_checkbox_multi_controller">자동 컨트롤러 유무 감지</string>
+    <string name="summary_checkbox_multi_controller">이 옵션을 선택 취소하면 컨트롤러가 항상 표시됩니다</string>
+    <string name="title_seekbar_deadzone">아날로그 스틱 데드존 설정</string>
+    <string name="suffix_seekbar_deadzone">%</string>
+    <string name="title_checkbox_xb1_driver">Xbox 360/One 컨트롤러 드라이버</string>
+    <string name="summary_checkbox_xb1_driver">네이티브 Xbox 컨트롤러 지원 없이 빌드인 USB드라이버를 활성화합니다</string>
+    <string name="category_on_screen_controls_settings">화면 상의 컨트롤 설정</string>
+    <string name="title_checkbox_show_onscreen_controls">화면 위에 컨트롤러 표시</string>
+    <string name="summary_checkbox_show_onscreen_controls">터치스크린에 가상 컨트롤러 오버레이를 표시합니다</string>
+    <string name="category_ui_settings">UI 설정</string>
+    <string name="title_language_list">언어</string>
+    <string name="summary_language_list">Moonlight에서 사용할 언어를 선택합니다</string>
+    <string name="title_checkbox_small_icon_mode">작은 아이콘 사용</string>
+    <string name="summary_checkbox_small_icon_mode">한 화면에서 더 많은 게임을 볼 수 있게 게임을 더 작게 표시합니다</string>
+    <string name="category_host_settings">호스트 설정</string>
+    <string name="title_checkbox_enable_sops">게임 설정 최적화</string>
+    <string name="summary_checkbox_enable_sops">최적의 스트리밍을 위해 Geforce Experience가 게임 설정을 수정하도록 허용합니다</string>
+    <string name="title_checkbox_host_audio">PC에서 소리 재생</string>
+    <string name="summary_checkbox_host_audio">이 장치와 컴퓨터에서 소리를 재생합니다</string>
+    <string name="category_advanced_settings">고급 설정</string>
+    <string name="title_video_format">코덱 설정 변경</string>
+    <string name="summary_video_format">최신 코덱은 장치에서 지원하는 경우 비디오 대역폭 요구 사항을 낮출 수 있습니다. 호스트 소프트웨어 또는 GPU에서 지원하지 않는 경우 코덱 선택을 무시할 수 있습니다.</string>
+    <string name="suffix_osc_opacity">%</string>
+    <string name="title_checkbox_enable_pip">PIP모드 활성화</string>
+    <string name="summary_checkbox_vibrate_fallback">컨트롤러가 진동을 지원하지 않는 경우 장치를 진동 시켜 진동을 활성화합니다</string>
+    <string name="title_checkbox_vibrate_fallback">게임패드 진동을 장치에서 사용하기</string>
+    <string name="summary_checkbox_touchscreen_trackpad">활성화시 터치 스크린이 트랙 패드처럼 작동합니다. 비활성화 된 경우 터치 스크린처럼 작동합니다.</string>
+    <string name="title_checkbox_touchscreen_trackpad">터치 스크린을 트랙 패드로 사용하기</string>
+    <string name="category_input_settings">입력 설정</string>
+    <string name="summary_audio_config_list">홈 시어터 시스템을 위한 5.1 또는 7.1 서라운드 사운드 활성화</string>
+    <string name="title_audio_config_list">서라운드 사운드 설정</string>
+    <string name="resolution_prefix_native">네이티브</string>
+    <string name="summary_fps_list">높을수록 화면이 더 부드러워집니다. 저사양 기기에서는 낮추는것이 좋습니다.</string>
+    <string name="title_fps_list">FPS 설정</string>
+    <string name="text_native_res_dialog">네이티브 해상도 및 FPS는 스트리밍 서버에서 지원하지 않을 수 있습니다. 호스트 PC에 대해 일치하는 사용자 지정 디스플레이 모드를 수동으로 구성해야 할 수 있습니다.
+\n
+\n화면 설정과 일치하도록 NVIDIA 제어판에서 사용자 정의 해상도를 생성 할 경우 모니터 손상, PC 불안정 및 기타 잠재적인 문제에 대한 NVIDIA의 경고를 읽고 이해했는지 확인하십시오.
+\n
+\nMoonlight는 PC에서 사용자 지정 해상도를 생성하여 발생하는 문제에 대해 책임을 지지 않습니다.
+\n
+\n모니터가 필요한 디스플레이 구성을 지원하지 않을 경우 가상 모니터 설정을 시도할 수 있습니다. 장치나 호스트 PC가 특정 해상도나 새로 고침 빈도로 스트리밍을 지원하지 않을 수 있습니다.</string>
+    <string name="title_native_res_dialog">네이티브 해상도 주의사항</string>
+    <string name="addpc_wrong_sitelocal">주소가 잘못된 것 같습니다. 인터넷을 통해 스트리밍하려면 라우터의 공용 IP 주소를 사용해야합니다.</string>
+    <string name="applist_details_id">앱 ID:</string>
+    <string name="applist_menu_hide_app">게임 숨기기</string>
+    <string name="applist_menu_scut">바로가기 만들기</string>
+    <string name="applist_menu_details">세부사항</string>
+    <string name="perf_overlay_dectime">평균 디코딩 시간 : %1$.2f ms</string>
+    <string name="perf_overlay_netlatency">평균 네트워크 지연 시간 : %1$d ms (편차 : %2$d ms)</string>
+    <string name="perf_overlay_netdrops">네트워크에 의해 손실 된 프레임 : %1$.2f%%</string>
+    <string name="perf_overlay_renderingfps">렌더링 프레임속도 : %1$.2f FPS</string>
+    <string name="perf_overlay_incomingfps">네트워크를 통해 받은 프레임속도: %1$.2f FPS</string>
+    <string name="perf_overlay_decoder">디코더:%1$s</string>
+    <string name="poor_connection_msg">PC와의 연결이 불안정함</string>
+    <string name="slow_connection_msg">PC와의 연결이 불안정합니다.
+\n비트레이트를 줄이세요</string>
+    <string name="delete_pc_msg">이 PC를 삭제 하시겠습니까\?</string>
+    <string name="title_details">세부정보</string>
+    <string name="check_ports_msg">다음 포트의 방화벽 및 포트 포워딩 설정을 확인하십시오:</string>
+    <string name="early_termination_error">스트림을 시작할 때 호스트 PC에서 문제가 발생했습니다.
+\n
+\n호스트 PC에 DRM으로 보호 된 콘텐츠가 열려 있지 않은지 확인하거나 호스트 PC를 재부팅하십시오 .</string>
+    <string name="no_frame_received_error">네트워크 연결이 불안정합니다. 비트레이트를 낮추거나 더 빠른 네트워크에 연결하십시오.</string>
+    <string name="no_video_received_error">호스트로부터 비디오를 받지 못했습니다.</string>
+    <string name="video_decoder_init_failed">비디오 디코더를 실행하지 못했습니다. 이 장치가 선택한 해상도 또는 프레임 속도를 지원하지 않을 수 있습니다.</string>
+    <string name="error_usb_prohibited">기기 관리자에 의해 USB 액세스가 차단되었습니다. Knox 또는 MDM 설정을 확인하십시오.</string>
+    <string name="message_decoding_reset">선택한 스트리밍 설정에서 장치의 비디오 디코더가 계속 문제가 발생합니다. 스트리밍 설정이 기본값으로 재설정되었습니다.</string>
+    <string name="title_decoding_reset">비디오 설정 초기화</string>
+    <string name="message_decoding_error">이 장치의 비디오 디코더와 호환되지 않아 Moonlight에서 오류가 발생했습니다. 충돌이 계속되면 스트리밍 설정을 조정 해보십시오.</string>
+    <string name="title_decoding_error">비디오 디코더 오류</string>
+    <string name="nettest_text_blocked">기기의 현재 네트워크가 Moonlight를 차단하고 있습니다. 이 네트워크에 연결되어 있으면 인터넷을 통한 스트리밍이 작동하지 않을 수 있습니다.</string>
+    <string name="nettest_text_failure">기기의 현재 네트워크가 Moonlight를 차단하는 것 같습니다. 이 네트워크에 연결되어 있으면 인터넷을 통한 스트리밍이 작동하지 않을 수 있습니다.
+\n
+\n차단된 네트워크 포트:
+\n</string>
+    <string name="nettest_text_inconclusive">Moonlight의 테스트 서버에 연결할 수 없기 때문에 네트워크 테스트를 할 수 없습니다. 인터넷 연결을 확인하거나 나중에 다시 시도하십시오.</string>
+    <string name="nettest_text_success">네트워크가 Moonlight를 차단하지 않는 것 같습니다. 여전히 연결에 문제가 있으면 PC의 방화벽 설정을 확인하십시오
+\n
+\n인터넷을 통해 연결하려는 경우 PC에 Moonlight Internet Hosting Tool을 설치하고 Internet Streaming Tester를 실행하여 PC의 인터넷 연결을 확인하십시오.</string>
+    <string name="nettest_title_done">네트워크 연결 테스트 완료</string>
+    <string name="nettest_text_waiting">Moonlight는 필요한 포트가 차단되었는지 확인하기 위해 네트워크 연결을 테스트하고 있습니다.
+\n
+\n잠시 기다려 주세요…</string>
+    <string name="pcview_menu_header_unknown">상태 확인중</string>
+    <string name="pcview_menu_test_network">네트워크 연결 테스트</string>
+    <string name="pcview_menu_header_offline">오프라인</string>
+    <string name="pcview_menu_header_online">온라인</string>
+    <string name="nettest_title_waiting">네트워크 연결을 테스트하는 중</string>
+    <string name="pcview_menu_details">PC 세부정보</string>
+    <string name="scut_pc_not_found">PC를 찾을 수 없음</string>
+    <string name="suffix_seekbar_bitrate_mbps">Mbps</string>
+    <string name="applist_menu_tv_channel">채널 추가하기</string>
+    <string name="scut_invalid_uuid">PC를 사용할 수 없음</string>
+    <string name="scut_invalid_app_id">앱을 사용할 수 없음</string>
+    <string name="summary_enable_post_stream_toast">스트림 종료 후 지연시간 정보 표시</string>
+    <string name="title_enable_post_stream_toast">스트리밍 후 지연시간 정보 표시</string>
+    <string name="title_enable_perf_overlay">스트리밍 중 성능 정보 표시</string>
+    <string name="summary_enable_perf_overlay">스트리밍하는 동안 실시간 스트림 성능 정보 표시</string>
+    <string name="summary_enable_hdr">게임 및 PC의 GPU가 HDR을 지원하는 경우 HDR을 활성화합니다. HDR에는 HEVC Main 10 인코딩을 지원하는 GPU가 필요합니다.</string>
+    <string name="title_enable_hdr">HDR활성화 (실험용)</string>
+    <string name="summary_disable_frame_drop">일부 장치에서 미세한 끊김 현상을 줄일 수 있지만 지연 시간이 늘어날 수 있습니다</string>
+    <string name="title_disable_frame_drop">프레임드랍 최적화</string>
+    <string name="summary_unlock_fps">90 또는 120FPS로 스트리밍하면 지연 시간이 줄어들 수 있지만 이를 지원할 수 없는 장치에서는 지연 또는 불안정 할 수 있습니다</string>
+    <string name="title_unlock_fps">모든 프레임 속도 잠금 해제</string>
+    <string name="summary_checkbox_enable_pip">PIP모드를 사용하는 중에 화면은 볼 수 있지만 제어는 할 수 없습니다</string>
+    <string name="dialog_title_osc_opacity">투명도 조절</string>
+    <string name="summary_osc_opacity">가상컨트롤러의 투명도를 조절할 수 있습니다</string>
+    <string name="title_osc_opacity">가상컨트롤러의 투명도 설정</string>
+    <string name="toast_reset_osc_success">가상 컨트롤러 배치가 초기화되었습니다</string>
+    <string name="dialog_text_reset_osc">저장된 가상 컨트롤러 배치를 초기화 하시겠습니까\?</string>
+    <string name="dialog_title_reset_osc">가상 컨트롤러 배치 초기화</string>
+    <string name="summary_reset_osc">가상 컨트롤러를 기본 크기 및 위치로 초기화합니다</string>
+    <string name="title_reset_osc">가상 컨트롤러 배치 초기화</string>
+    <string name="summary_only_l3r3">L3 및 R3을 제외한 모든 가상 버튼을 숨깁니다</string>
+    <string name="title_only_l3r3">L3와 R3버튼만 표시하기</string>
+    <string name="summary_checkbox_flip_face_buttons">컨트롤러 및 가상 컨트롤러의 A / B 와 X / Y 버튼을 바꿉니다</string>
+    <string name="summary_checkbox_vibrate_osc">가상 컨트롤러에서 장치를 진동하여 게임패드 진동을 구현합니다</string>
+    <string name="title_checkbox_vibrate_osc">진동 활성화</string>
+    <string name="title_checkbox_flip_face_buttons">버튼 바꾸기</string>
+    <string name="summary_checkbox_mouse_nav_buttons">이 옵션을 활성화하면 일부 장치에서 오른쪽 클릭에 문제가 있을 수 있습니다</string>
+    <string name="title_checkbox_mouse_nav_buttons">마우스 사이드버튼 활성화</string>
+    <string name="summary_checkbox_mouse_emulation">패드의 Start 버튼을 길게 누르면 컨트롤러가 마우스 모드로 전환됩니다</string>
+    <string name="summary_checkbox_usb_bind_all">Xbox 컨트롤러를 기본으로 지원하는 경우에도 지원되는 모든 컨트롤러에 Moonlight의 USB 드라이버를 사용합니다</string>
+    <string name="title_checkbox_usb_bind_all">기본 Xbox 컨트롤러 지원 무시</string>
+    <string name="title_checkbox_mouse_emulation">컨트롤러를 마우스처럼 사용하기</string>
+    <string name="perf_overlay_streamdetails">비디오 스트림 : %1$s %2$.2f FPS</string>
+    <string name="unable_to_pin_shortcut">현재 런처에서는 바로가기 생성이 불가능합니다.</string>
+    <string name="resolution_prefix_native_fullscreen">네이티브 (전체화면)</string>
+    <!-- Array strings -->
+    <string name="videoformat_auto">자동 (권장)</string>
+    <string name="videoformat_hevcalways">HEVC 선호</string>
+    <string name="summary_seekbar_deadzone">참고: 일부 게임은 이 설정값보다 더 큰 데드존이 적용되있을 수 있습니다.</string>
+    <string name="resolution_1080p">1080p</string>
+    <string name="resolution_360p">360p</string>
+    <string name="resolution_720p">720p</string>
+    <string name="resolution_4k">4K</string>
+    <string name="fps_30">30 FPS</string>
+    <string name="resolution_1440p">1440p</string>
+    <string name="resolution_480p">480p</string>
+    <string name="fps_90">90 FPS</string>
+    <string name="fps_120">120 FPS</string>
+    <string name="audioconf_stereo">스트레오</string>
+    <string name="title_setup_guide">시작 가이드</string>
+    <string name="summary_setup_guide">스트리밍을 위해 게임 PC를 설정하는 방법 보기</string>
+    <string name="title_troubleshooting">문제 해결 가이드</string>
+    <string name="summary_troubleshooting">일반적인 스트리밍 문제 진단 및 해결을 위한 팁 보기</string>
+    <string name="title_privacy_policy">개인 정보 정책</string>
+    <string name="summary_privacy_policy">Moonlight의 개인 정보 보호 정책 보기</string>
+    <string name="summary_frame_pacing">비디오 지연 시간과 부드러움의 균형을 맞추는 방법 설정</string>
+    <string name="pacing_latency">최저 지연 시간 선호</string>
+    <string name="pacing_balanced">균형</string>
+    <string name="pacing_balanced_alt">FPS 제한과 균형</string>
+    <string name="title_checkbox_enable_audiofx">시스템 이퀄라이저 지원 활성화</string>
+    <string name="summary_checkbox_enable_audiofx">스트리밍 중 오디오 효과가 작동하도록 하지만 오디오 지연시간이 증가할 수 있습니다</string>
+    <string name="title_checkbox_absolute_mouse_mode">원격 데스크톱 마우스 모드</string>
+    <string name="summary_checkbox_absolute_mouse_mode">이 옵션을 활성화하면 마우스가 보다 자연스럽게 동작할 수 있지만 많은 게임과 호환되지 않습니다(특히 FPS에서).</string>
+    <string name="fps_60">60 FPS</string>
+    <string name="audioconf_51surround">5.1 서라운드 사운드</string>
+    <string name="audioconf_71surround">7.1 서라운드 사운드</string>
+    <string name="title_frame_pacing">비디오 프레임 처리방식</string>
+    <string name="pacing_smoothness">가장 부드러운 비디오 선호(대기 시간이 크게 증가할 수 있음)</string>
+    <string name="category_help">도움말</string>
+    <string name="resolution_prefix_native_landscape">(가로)</string>
+    <string name="resolution_prefix_native_portrait">(세로)</string>
+    <string name="title_checkbox_reduce_refresh_rate">주사율 감소 허용</string>
+    <string name="summary_checkbox_reduce_refresh_rate">화면 주사율을 낮춰서 영상 지연 시간이 증가하고 전력을 절약할 수 있습니다</string>
+    <string name="frame_conversion_error">호스트 PC에서 치명적인 비디오 인코딩 오류를 보고했습니다.
+\n
+\nHDR 모드를 비활성화하거나 스트리밍 해상도를 변경하거나 호스트 PC의 디스플레이 해상도를 변경해 보십시오.</string>
+    <string name="summary_full_range">밝기범위를 \"전체(0~255)\"로 설정합니다. 장치의 디스플레이가 \"제한(16~235)\" 범위로 출력하는 경우 밝기가 제대로 표현되지 않습니다.</string>
+    <string name="title_full_range">전체 범위 비디오 활성화 (실험용)</string>
+    <string name="title_checkbox_gamepad_motion_sensors">컨트롤러 모션 센서 사용 허용</string>
+    <string name="summary_checkbox_gamepad_motion_sensors">모션 센서가 있는 컨트롤러를 에뮬레이션할 때 지원되는 호스트가 모션 센서 데이터를 요청할 수 있습니다. 비활성화하면 게임에서 동작 센서를 사용하지 않는 경우 전원 및 네트워크 사용량이 약간 줄어들 수 있습니다.</string>
+    <string name="summary_checkbox_gamepad_touchpad_as_mouse">터치패드로 컨트롤러를 에뮬레이션하는 경우에도 호스트 마우스를 제어하기 위해 컨트롤러 터치패드 입력을 강제합니다.</string>
+    <string name="pcview_menu_eol">NVIDIA GameStream 지원 종료</string>
+    <string name="pair_pairing_help">호스트 PC에서 Sunshine을 실행 중인 경우 Sunshine 웹 UI로 이동하여 PIN을 입력합니다.</string>
+    <string name="perf_overlay_hostprocessinglatency">호스트 처리 대기 시간 최소/최대/평균: %1$.1f/%2$.1f/%3$.1f ms</string>
+    <string name="fps_suffix_fps">FPS</string>
+    <string name="title_native_fps_dialog">네이티브 FPS 주의사항</string>
+    <string name="category_gamepad_settings">컨트롤러 설정</string>
+    <string name="title_checkbox_gamepad_touchpad_as_mouse">항상 터치패드로 마우스 제어</string>
+    <string name="videoformat_av1always">AV1 선호 (실험용)</string>
+    <string name="videoformat_h264always">H.264 선호</string>
+    <string name="toast_controller_type_changed">모션 센서 에뮬레이션으로 인해 컨트롤러 유형이 변경될 수 있습니다</string>
+    <string name="summary_checkbox_gamepad_motion_fallback">연결된 컨트롤러 또는 기기의 Android 버전에서 컨트롤러 센서가 지원되지 않는 경우 장치에 내장된 모션 센서를 사용합니다.
+\n참고: 이 옵션을 활성화하면 사용 중인 컨트롤러가 호스트에서 PlayStation 컨트롤러로 나타날 수 있습니다.</string>
+    <string name="title_checkbox_gamepad_motion_fallback">컨트롤러의 모션 센서 에뮬레이션 지원</string>
+    <string name="error_code_prefix">에러 코드:</string>
+    <string name="summary_seekbar_vibrate_fallback_strength">장치의 진동 강도를 증폭하거나 감소시킵니다</string>
+    <string name="title_analog_scrolling">아날로그 스틱을 사용하여 스크롤</string>
+    <string name="analogscroll_none">없음 (두 스틱 모두 마우스를 움직입니다)</string>
+    <string name="analogscroll_right">우측 아날로그 스틱</string>
+    <string name="analogscroll_left">좌측 아날로그 스틱</string>
+    <string name="title_seekbar_vibrate_fallback_strength">에뮬레이트된 진동 강도 조정</string>
+    <string name="summary_analog_scrolling">마우스 에뮬레이션 모드에서 스크롤할 아날로그 스틱을 선택하세요</string>
+    <string name="suffix_seekbar_vibrate_fallback_strength">%</string>
+    <!-- General strings -->
+    <string name="perf_overlay_audio_underruns">오디오 끊김: %1$d</string>
+    <!-- Preferences -->
+    <string name="title_checkbox_vr_virtual_surround">헤드셋용 가상 서라운드</string>
+    <string name="summary_checkbox_vr_virtual_surround">5.1 또는 7.1의 각 스피커를 스테레오 사운드로 주변에 배치하며, 고개를 돌려도 화면에 고정됩니다. 위에서 5.1 또는 7.1을 선택해야 하며, 서라운드를 출력하는 호스트와 게임이 필요합니다.</string>
+    <string name="title_show_guide_button">가이드 버튼 표시</string>
+    <string name="summary_show_guide_button">화면에 가이드 버튼을 표시합니다</string>
+    <string name="title_checkbox_auto_launch_desktop">Desktop 자동으로 열기</string>
+    <string name="summary_checkbox_auto_launch_desktop">PC를 누르면 앱 목록을 표시하지 않고 Desktop이라는 앱을 바로 시작합니다(호스트에 있는 경우)</string>
+    <string name="title_settings_back">뒤로</string>
+    <string name="summary_settings_back">컴퓨터 목록으로 돌아갑니다</string>
+    <string name="category_vr_settings">VR 설정</string>
+    <string name="category_vr_debug">VR 디버깅</string>
+    <string name="title_enable_vr_mode">VR로 스트리밍</string>
+    <string name="summary_enable_vr_mode">몰입형 VR 세션의 가상 화면에 스트림을 표시합니다. 헤드셋 전용이며, 3D 효과가 있는 유일한 모드입니다.</string>
+    <string name="title_vr_head_locked">머리에 고정된 화면</string>
+    <string name="summary_vr_head_locked">가상 화면을 공간에 고정하는 대신 시야 앞에 고정합니다</string>
+    <string name="title_seekbar_vr_distance">화면 거리</string>
+    <string name="summary_seekbar_vr_distance">가상 화면이 얼마나 멀리 있는지</string>
+    <string name="title_seekbar_vr_screen_size">화면 너비</string>
+    <string name="summary_seekbar_vr_screen_size">가상 화면의 너비</string>
+    <string name="title_seekbar_vr_curvature">화면 곡률</string>
+    <string name="summary_seekbar_vr_curvature">0은 평면이며, 값이 높을수록 화면이 사용자를 감싸듯 휘어집니다</string>
+    <string name="suffix_seekbar_vr_meters">m</string>
+    <string name="title_vr_pointer">컨트롤러를 마우스로 사용</string>
+    <string name="title_vr_gaze">시선으로 가리키기</string>
+    <string name="summary_vr_gaze">시선 추적이 되는 헤드셋에서는 화면을 바라보는 것으로 가리키고, 어느 손이든 엄지와 검지를 맞대어 클릭합니다. 컨트롤러의 버튼을 누르면 내려놓을 때까지 그 컨트롤러가 포인터를 맡고, 눈을 10초 동안 인식하지 못하면 다시 인식될 때까지 손으로 가리킵니다.</string>
+    <string name="title_vr_hand_tracking">핸드 트래킹</string>
+    <string name="summary_vr_hand_tracking">컨트롤러를 내려놓으면 손으로 가리키고 핀치합니다. 컨트롤러만 사용하려면 이 옵션을 끄세요. 세션 중에는 엄지와 검지를 빠르게 세 번 맞대면 게임을 나가지 않고 손을 잠글 수 있으며, 같은 트리플 핀치로 잠금이 풀립니다.</string>
+    <string name="vr_hand_hint_title">핸드 트래킹이 켜져 있습니다.</string>
+    <string name="vr_hand_hint_body">엄지와 검지를 빠르게 세 번 맞대면 손이 잠겨 실수로 한 핀치가 클릭되지 않습니다. 같은 트리플 핀치로 잠금이 풀립니다.</string>
+    <string name="vr_hand_hint_never">다시 표시 안 함</string>
+    <string name="vr_kofi_title">Ko-fi에서 Moonlight XR 후원하기</string>
+    <string name="vr_kofi_scan">휴대폰으로 스캔하세요.</string>
+    <string name="vr_kofi_free">선택 사항: Moonlight XR은 무료이며 앞으로도 무료입니다.</string>
+    <string name="vr_kofi_close">닫기</string>
+    <string name="summary_vr_pointer">컨트롤러로 화면을 가리켜 호스트의 마우스를 움직입니다. 트리거는 클릭, A 또는 X는 오른쪽 클릭, 썸스틱은 스크롤입니다. 마우스를 직접 쓰는 게임에서는 썸스틱을 눌러 포인터를 끄세요.</string>
+    <string name="title_vr_pointer_sleep">컨트롤러가 멈추면 포인터 일시 중지</string>
+    <string name="summary_vr_pointer_sleep">컨트롤러를 몇 초간 움직이지 않으면 포인터가 사라지고, 다시 움직이거나 썸스틱을 밀면 돌아옵니다. 포인터를 계속 켜 두려면 이 옵션을 끄세요. 그러면 포인터가 화면 밖에 있어도 썸스틱으로 스크롤할 수 있습니다.</string>
+    <string name="title_vr_show_ray">컨트롤러 광선 표시</string>
+    <string name="summary_vr_show_ray">컨트롤러에서 화면으로 이어지는 광선입니다. 라이트건 게임에서는 꺼 두세요. 광선이 닿는 점은 남고 누르기도 그대로 작동하며, 패널이 열려 있는 동안에는 광선이 다시 나타나고, 화면 아래의 광선 버튼으로 세션 동안 전환할 수 있습니다.</string>
+    <string name="title_vr_controller_model">컨트롤러 표시</string>
+    <string name="summary_vr_controller_model">각 손에 실제 컨트롤러가 있는 위치에 간단한 컨트롤러를 그립니다. 실제 컨트롤러가 보이는 패스스루에서는 그리지 않으며, 손이 대신 추적되는 동안에도 그리지 않습니다.</string>
+    <string name="title_vr_head_aim">머리로 마우스 조준</string>
+    <string name="summary_vr_head_aim">화면이 머리에 고정되어 있을 때만 동작합니다. 고개를 돌리면 게임의 시점 조작처럼 마우스가 움직여 1인칭 게임에 적합합니다. 컨트롤러 포인터와 실제 마우스도 함께 사용할 수 있습니다. 패널이 열려 있으면 일시 중지되며, 화면 아래의 머리 조준 버튼으로 세션 동안 전환할 수 있습니다.</string>
+    <string name="title_seekbar_vr_head_aim_sensitivity">머리 조준 감도</string>
+    <string name="summary_seekbar_vr_head_aim_sensitivity">고개가 1도 돌 때마다 마우스가 움직이는 거리입니다. 시점이 고개만큼 돌아갈 때까지 게임 자체의 마우스 감도와 함께 조정하세요. 헤드셋 안 설정 패널의 ‘화면’ 탭에서도 같은 값을 바꿀 수 있습니다.</string>
+    <string name="title_seekbar_vr_head_aim_deadzone">머리 조준 데드존</string>
+    <string name="summary_seekbar_vr_head_aim_deadzone">이보다 느린 머리 움직임은 아무것도 보내지 않아, 가만히 있을 때 트래킹 떨림이 마우스를 움직이지 않습니다. 0이면 모든 움직임을 보냅니다.</string>
+    <string name="title_vr_gamepad_toggle">게임패드 모드 단축키</string>
+    <string name="summary_vr_gamepad_toggle">현재: %s. 게임패드 모드는 두 컨트롤러를 PC에서 하나의 Xbox 컨트롤러로 만듭니다. 스틱, A, B, X, Y, 트리거, 범퍼 역할의 그립, 스틱 클릭, Start 역할의 왼쪽 메뉴 버튼이 해당됩니다. 이 모드는 세션 안에서만, 설정 패널의 ‘표시’ 탭이나 화면 아래의 게임패드 버튼으로 켤 수 있으며, 모든 세션은 컨트롤러가 포인터인 상태로 시작합니다. 이 단축키는 이후 컨트롤러에서 두 모드를 전환합니다. 썸스틱이나 트리거와 그립을 단축키로 쓰면, 단축키 입력인지 확인하는 동안 해당 입력이 게임에 조금 늦게 전달됩니다.</string>
+    <string name="vr_gamepad_toggle_menu_grip">왼쪽 메뉴 버튼과 왼쪽 그립 길게 누르기</string>
+    <string name="vr_gamepad_toggle_sticks">양쪽 썸스틱 누르기 (L3 + R3)</string>
+    <string name="vr_gamepad_toggle_triggers_grips">양쪽 트리거와 양쪽 그립 쥐기</string>
+    <string name="title_vr_click_sound">패널을 누를 때 클릭음</string>
+    <string name="summary_vr_click_sound">헤드셋에서 누른 곳이 패널, 버튼 또는 키일 때 짧은 딸깍 소리가 납니다. 스트림 오디오와 별도로 시스템 사운드로 재생됩니다.</string>
+    <string name="title_vr_reset_pose">화면 위치 초기화</string>
+    <string name="summary_vr_reset_pose">화면을 위의 거리와 너비로 되돌리고, 컨트롤러로 이동하거나 크기를 바꾼 것을 취소합니다</string>
+    <string name="toast_vr_reset_pose">화면 위치가 초기화되었습니다</string>
+    <string name="title_vr_passthrough">패스스루 모드</string>
+    <string name="summary_vr_passthrough">패스스루를 켭니다. 시스템 자원을 더 사용하므로 스트림이 원활하지 않으면 끄세요</string>
+    <string name="title_vr_environment">환경</string>
+    <string name="summary_vr_environment">현재: %s. 세션이 시작될 때 화면을 둘러싸는 환경입니다. 헤드셋에서 화면 아래 버튼으로 고르면 이 설정도 바뀝니다.</string>
+    <string name="title_vr_doff_grace">헤드셋을 벗어도 1분간 스트림 유지</string>
+    <string name="summary_vr_doff_grace">헤드셋을 잠시 벗으면 스트림이 소리를 끈 채 최대 60초 동안 기다렸다가, 다시 쓰면 이어집니다. 끄면 헤드셋을 벗는 즉시 스트림이 종료됩니다.</string>
+    <string name="vr_environment_passthrough">패스스루</string>
+    <string name="vr_environment_void">검은 공간</string>
+    <string name="vr_environment_home_theater">Home Theater</string>
+    <string name="vr_environment_grand_cinema">Grand Cinema</string>
+    <string name="vr_environment_synthwave">Synthwave</string>
+    <string name="title_vr_depth_source">실시간 3D 모드</string>
+    <string name="summary_vr_depth_source">테스트 패턴을 포함해 실시간 3D 모드를 선택합니다.</string>
+    <string name="title_vr_env_res">환경 해상도</string>
+    <string name="summary_vr_env_res">화면 주변의 3D 룸을 얼마나 선명하게 렌더링할지 정합니다. 높을수록 GPU 시간을 더 씁니다. Ultra는 실험적이며 끊김이나 버벅임이 생길 수 있습니다.</string>
+    <string name="title_seekbar_vr_picture_brightness">화면 밝기</string>
+    <string name="summary_seekbar_vr_picture_brightness">헤드셋 안의 화면 전체를 밝게 하거나 어둡게 합니다. 0은 스트리밍된 그대로의 화면입니다. 헤드셋 안 설정 패널의 ‘화질’ 탭에서도 같은 네 가지 값을 바꿀 수 있습니다.</string>
+    <string name="title_seekbar_vr_picture_contrast">화면 대비</string>
+    <string name="summary_seekbar_vr_picture_contrast">중간 회색을 기준으로 화면의 톤을 벌리거나 모읍니다. 100%는 스트리밍된 그대로의 화면입니다.</string>
+    <string name="title_seekbar_vr_picture_gamma">화면 감마</string>
+    <string name="summary_seekbar_vr_picture_gamma">1.00보다 높으면 검정이나 흰색을 회색으로 만들지 않고 중간톤과 그림자를 밝혀, 어두운 게임에는 보통 밝기보다 잘 맞습니다. 1.00은 스트리밍된 그대로의 화면입니다.</string>
+    <string name="title_seekbar_vr_picture_saturation">화면 채도</string>
+    <string name="summary_seekbar_vr_picture_saturation">화면 색이 얼마나 진한지 정합니다. 0%는 흑백, 100%는 스트리밍된 그대로의 화면입니다.</string>
+    <string name="title_vr_sharpening">화면 선명화</string>
+    <string name="summary_vr_sharpening">헤드셋 컴포지터에서 가상 화면을 선명하게 합니다. 지원되는 헤드셋에서는 부담이 없으며, 확장 기능이 없는 런타임에서는 무시됩니다.</string>
+    <string name="title_vr_supersampling">화면 슈퍼샘플링</string>
+    <string name="summary_vr_supersampling">헤드셋 컴포지터에서 가상 화면을 슈퍼샘플링하여, 화면이 스트림보다 작게 표시될 때 반짝이는 세부를 안정시킵니다. 컴포지터 GPU 시간을 조금 쓰며, 확장 기능이 없는 런타임에서는 무시됩니다.</string>
+    <string name="title_vr_depth_debug">깊이 맵 표시</string>
+    <string name="summary_vr_depth_debug">깊이 품질을 확인할 수 있도록 영상 대신 깊이 맵을 회색조로 표시합니다</string>
+    <string name="title_vr_eye_swap">눈 바꾸기</string>
+    <string name="summary_vr_eye_swap">스테레오 모드에서 왼쪽 눈과 오른쪽 눈 영상을 서로 바꿉니다</string>
+    <string name="vr_unavailable_flat">헤드셋의 OpenXR 런타임에 연결할 수 없어 스트림을 평면 패널에 표시하고 있습니다. 헤드셋 소프트웨어를 업데이트하거나 ‘VR로 스트리밍’을 끄세요.</string>
+    <!-- %1$s is one of the vr_fail lines below, which say why -->
+    <string name="vr_unavailable_flat_reason">%1$s\n스트림을 평면 패널에 표시하고 있습니다. 헤드셋 소프트웨어를 업데이트하거나 ‘VR로 스트리밍’을 끄세요.</string>
+    <string name="vr_fail_no_runtime">응답한 OpenXR 런타임이 없습니다</string>
+    <!-- %1$s is the names of the missing OpenXR extensions -->
+    <string name="vr_fail_extensions">OpenXR 런타임이 %1$s을(를) 제공하지 않습니다</string>
+    <!-- %1$s in the vr_fail lines is what the runtime answered, like XR_ERROR_RUNTIME_FAILURE -->
+    <string name="vr_fail_instance">런타임이 인스턴스를 거부했습니다 (%1$s)</string>
+    <string name="vr_fail_system">런타임이 준비된 헤드셋을 찾지 못했습니다 (%1$s)</string>
+    <string name="vr_fail_graphics">런타임이 OpenGL ES를 거부했습니다 (%1$s)</string>
+    <string name="vr_fail_egl">헤드셋의 그래픽 드라이버에 오류가 발생했습니다 (%1$s)</string>
+    <string name="vr_fail_session">런타임이 세션을 거부했습니다 (%1$s)</string>
+    <string name="vr_fail_space">런타임이 트래킹 공간을 거부했습니다 (%1$s)</string>
+    <string name="vr_fail_swapchain">런타임이 비디오 스왑체인을 거부했습니다 (%1$s)</string>
+    <string name="vr_fail_gl">렌더러의 셰이더를 빌드하지 못했습니다</string>
+    <!-- %1$s is a number of seconds -->
+    <string name="vr_fail_timeout">런타임이 %1$s초 안에 응답하지 않았습니다</string>
+    <string name="vr_fail_unknown">VR 세션을 시작할 수 없습니다</string>
+    <string name="vr_toast_rate">디스플레이 %1$d Hz</string>
+    <string name="vr_toast_hands_locked">손 잠김</string>
+    <string name="vr_toast_hands_unlocked">손 잠금 해제</string>
+    <string name="vr_toast_3d_off">3D 꺼짐</string>
+    <string name="vr_toast_3d_on">3D 켜짐</string>
+    <string name="vr_toast_head_aim_on">머리 조준 켜짐</string>
+    <string name="vr_toast_head_aim_on_more">고개를 돌리면 마우스가 움직입니다</string>
+    <string name="vr_toast_head_aim_off">머리 조준 꺼짐</string>
+    <string name="vr_toast_gamepad_mode">게임패드 모드</string>
+    <string name="vr_toast_gamepad_back_menu_grip">포인터로 돌아가려면 왼쪽 메뉴 버튼과 왼쪽 그립을 길게 누르세요</string>
+    <string name="vr_toast_gamepad_back_sticks">포인터로 돌아가려면 양쪽 썸스틱을 누르세요</string>
+    <string name="vr_toast_gamepad_back_triggers_grips">포인터로 돌아가려면 양쪽 트리거와 양쪽 그립을 쥐세요</string>
+    <string name="vr_toast_pointer_mode">포인터 모드</string>
+    <!-- The panels inside the session. They are drawn at a fixed size, so keep these short. -->
+    <string name="vr_panel_tab_screen">화면</string>
+    <string name="vr_panel_tab_display">표시</string>
+    <string name="vr_panel_3d">3D</string>
+    <string name="vr_panel_tab_picture">화질</string>
+    <string name="vr_panel_tab_about">정보</string>
+    <string name="vr_panel_tab_room">룸</string>
+    <string name="vr_panel_distance">거리</string>
+    <string name="vr_panel_height">높이</string>
+    <string name="vr_panel_tilt">기울기</string>
+    <string name="vr_panel_rotate">회전</string>
+    <string name="vr_panel_curve">곡률</string>
+    <string name="vr_panel_size">크기</string>
+    <string name="vr_panel_aim_sensitivity">머리 조준 감도</string>
+    <string name="vr_panel_aim_dead_zone">머리 조준 데드존</string>
+    <!-- Where head aim's rows are greyed out: the screen is not locked to the head. Names the Head locked row. -->
+    <string name="vr_panel_needs_head_lock">‘머리에 고정’ 필요</string>
+    <string name="vr_panel_not_in_room">룸에서는 사용 불가</string>
+    <string name="vr_panel_reset">초기화</string>
+    <string name="vr_panel_brightness">밝기</string>
+    <string name="vr_panel_glow">글로우</string>
+    <string name="vr_panel_screen_light">화면 조명</string>
+    <string name="vr_panel_light_level">조명 세기</string>
+    <string name="vr_panel_off">끔</string>
+    <string name="vr_panel_on">켬</string>
+    <string name="vr_panel_fixed_size">이 룸의 화면은 크기가 고정되어 있습니다</string>
+    <string name="vr_panel_sharpen">선명화</string>
+    <string name="vr_panel_supersample">슈퍼샘플링</string>
+    <string name="vr_panel_stats">통계</string>
+    <string name="vr_panel_head_locked">머리에 고정</string>
+    <string name="vr_panel_head_aim">머리 조준</string>
+    <string name="vr_panel_controllers">컨트롤러</string>
+    <string name="vr_panel_pointer_sleep">포인터 절전</string>
+    <string name="vr_panel_ray">광선</string>
+    <string name="vr_panel_controller_model">컨트롤러 모델</string>
+    <string name="vr_panel_click_sound">클릭음</string>
+    <string name="vr_panel_normal">보통</string>
+    <string name="vr_panel_quality">고품질</string>
+    <string name="vr_panel_pointer">포인터</string>
+    <string name="vr_panel_gamepad">게임패드</string>
+    <string name="vr_panel_glow_level">글로우 세기</string>
+    <string name="vr_panel_shortcut_menu_grip">단축키: 왼쪽 메뉴 + 그립</string>
+    <string name="vr_panel_shortcut_sticks">단축키: 양쪽 썸스틱</string>
+    <string name="vr_panel_shortcut_triggers_grips">단축키: 트리거 + 그립</string>
+    <string name="vr_panel_preset">프리셋</string>
+    <string name="vr_panel_comfort">편안함</string>
+    <string name="vr_panel_balanced">균형</string>
+    <string name="vr_panel_strong">강하게</string>
+    <string name="vr_panel_depth">깊이</string>
+    <string name="vr_panel_convergence">수렴</string>
+    <string name="vr_panel_harder_on_eyes">눈이 더 피로해짐</string>
+    <string name="vr_panel_3d_off_in_settings">설정에서 3D가 꺼져 있습니다</string>
+    <string name="vr_panel_contrast">대비</string>
+    <string name="vr_panel_gamma">감마</string>
+    <string name="vr_panel_saturation">채도</string>
+    <string name="vr_panel_version">버전 %1$s, 커밋 %2$s</string>
+    <string name="vr_panel_version_no_commit">버전 %1$s</string>
+    <!-- %1$s is where the log file is, like Download/MoonlightXR/moonlight.log -->
+    <string name="vr_panel_log_file">로그 파일: %1$s</string>
+    <string name="vr_panel_log_file_off">로그 파일: 꺼짐</string>
+    <string name="vr_panel_report_sends">헤드셋 정보, 설정, 로그와 함께 메모를 보냅니다</string>
+    <string name="vr_panel_rooms">룸</string>
+    <!-- Keys on the keyboard inside the session, one key wide: Shift one and a half, space four -->
+    <string name="vr_key_shift">Shift</string>
+    <string name="vr_key_space">스페이스</string>
+    <string name="vr_key_enter">Enter</string>
+    <string name="vr_key_hide">숨기기</string>
+    <string name="vr_key_ctrl">Ctrl</string>
+    <string name="vr_key_alt">Alt</string>
+    <string name="vr_key_win">Win</string>
+    <string name="vr_exit_question">스트림을 종료할까요?</string>
+    <string name="vr_exit">종료</string>
+    <!-- The report sheet inside the session -->
+    <string name="vr_report_note_hint">문제가 생겼을 때 무엇을 하고 있었나요?</string>
+    <string name="vr_report_optional">선택 사항</string>
+    <string name="vr_report_email_bad">올바른 이메일 주소가 아닌 것 같습니다</string>
+    <string name="vr_report_sends">메시지, 헤드셋과 빌드 정보, 설정, 앱 로그를 보냅니다. 로그에는 네트워크상 PC의 이름과 주소가 포함될 수 있습니다. ‘보내기’를 누르기 전에는 아무것도 보내지 않습니다.</string>
+    <string name="vr_report_not_written">보고서를 저장하지 못했습니다</string>
+    <string name="vr_battery">배터리 %1$d%%</string>
+    <string name="title_bug_report">문제 신고</string>
+    <string name="summary_bug_report">메시지, 기기, 설정, 로그를 담은 보고서를 만들어 보냅니다</string>
+    <!-- The About category at the end of the settings -->
+    <string name="category_about">정보</string>
+    <string name="about_version">Moonlight XR %1$s, 커밋 %2$s</string>
+    <string name="about_version_no_commit">Moonlight XR %1$s</string>
+    <string name="title_about_licence">라이선스: GPLv3</string>
+    <string name="title_checkbox_check_updates">업데이트 확인</string>
+    <string name="summary_checkbox_check_updates">하루에 한 번 GitHub에 최신 릴리스를 확인하고, 더 새로운 버전이 있으면 알림을 표시합니다. 앱 버전 외에는 아무것도 보내지 않으며, 아무것도 다운로드하지 않습니다.</string>
+    <string name="update_notice">Moonlight XR %1$s 버전을 사용할 수 있습니다</string>
+    <string name="update_notice_view">보기</string>
+    <string name="update_notice_dismiss">닫기</string>
+    <string name="bug_report_intro">무엇이 잘못되었고 무엇을 기대했는지 적어 주세요. 보고서는 메시지와 함께 앱 버전, 헤드셋, 스트리밍 설정, 로그 파일을 묶어 %1$s(으)로 보냅니다. 로그에는 네트워크상 PC의 이름과 주소가 포함될 수 있습니다.\n\n로그: %2$s</string>
+    <string name="bug_report_log_off">꺼짐. ‘로그 파일 저장’을 켜고 먼저 문제를 재현하세요. 그렇지 않으면 보고서에 로그가 포함되지 않습니다.</string>
+    <string name="bug_report_email_hint">답장을 받을 이메일 주소</string>
+    <string name="bug_report_message_hint">무슨 일이 있었나요?</string>
+    <string name="bug_report_send_direct">보내기</string>
+    <string name="bug_report_sending">보고서를 보내는 중…</string>
+    <string name="bug_report_sent">보고서를 보냈습니다</string>
+    <string name="bug_report_not_sent_at">보내지 못했습니다. 저장 위치:</string>
+    <string name="bug_report_busy_at">서버가 혼잡합니다. 저장 위치:</string>
+    <string name="bug_report_no_collector_at">수집 서버 없는 빌드. 저장 위치:</string>
+    <string name="bug_report_failed">보고서를 쓰지 못했습니다: %1$s</string>
+    <string name="title_vr_file_log">로그 파일 저장</string>
+    <string name="summary_vr_file_log">Download/MoonlightXR에 텍스트 로그를 남깁니다. 헤드셋의 파일 관리자로 찾을 수 있으며 버그 보고서에 첨부할 수 있습니다. 로그에는 네트워크상 PC의 이름과 주소가 포함될 수 있습니다. 5MB가 되면 moonlight.previous.log로 넘어가므로 두 파일을 합쳐도 10MB를 넘지 않습니다. 변경 사항은 앱을 다시 시작해야 적용됩니다.</string>
+    <string name="title_seekbar_vr_inference_cadence">초당 깊이 업데이트</string>
+    <string name="summary_seekbar_vr_inference_cadence">3D가 1초에 만드는 깊이 맵의 수입니다. 적을수록 헤드셋 부담이 줄지만 깊이가 더 늦게 따라옵니다. 헤드셋이 따라가지 못하면 디스플레이 주사율을 낮추기 전에 이 값을 잠시 절반으로 줄입니다.</string>
+    <string name="suffix_seekbar_vr_inference_cadence">회/초</string>
+    <string name="title_seekbar_vr_separation">스테레오 간격</string>
+    <string name="summary_seekbar_vr_separation">두 눈의 시점이 프레임 너비의 몇 퍼센트만큼 떨어져 있는지입니다. 약 0.5를 넘으면 더 깊어 보이지 않고 눈만 더 피로해집니다.</string>
+    <string name="suffix_seekbar_vr_percent">%</string>
+    <string name="suffix_seekbar_vr_head_aim_sensitivity">px/도</string>
+    <string name="suffix_seekbar_vr_head_aim_deadzone">도/초</string>
+    <string name="gen1_warning_title">구형 헤드셋 감지됨</string>
+    <string name="gen1_warning_text">이 앱은 Quest 3 / Pico 4 Ultra 이상의 헤드셋을 위해 만들어졌습니다. Quest 2 / Pico 4 세대 이하의 헤드셋에서는 성능을 테스트하지 않았으며 낮을 것으로 예상됩니다. 즐겁게 사용할 수 있도록 낮은 성능 프로필을 적용했습니다. 실시간 3D를 끄면 성능이 크게 오르지만, 아마 이 앱을 받은 이유가 바로 그것이겠죠! 참고로 알려 드립니다. 감사합니다, 즐거운 시간 되세요!</string>
+    <string name="warning_dialog_never_again">다시 표시 안 함</string>
+    <string name="title_enable_gl_render_path">OpenGL로 렌더링 (실험적)</string>
+    <string name="summary_enable_gl_render_path">디코딩된 영상을 표시하기 전에 OpenGL 텍스처를 거치게 합니다. 일반 렌더링과 똑같이 보여야 합니다. 켜면 HDR 스트림의 톤이 잘립니다.</string>
+    <!-- Permission justification -->
+    <string name="local_network_rationale">Moonlight가 근처의 호스트와 통신하려면 로컬 네트워크 권한이 필요합니다</string>
+    <!-- Array strings -->
+    <string name="fps_72">72 FPS</string>
+    <!-- VR Array strings -->
+    <string name="vr_depth_source_zipdepth">V2.0 - ZipDepth 기반 3D (권장)</string>
+    <string name="vr_depth_source_off">끔</string>
+    <string name="vr_depth_source_model">V1.0 - MiDaS 기반 3D</string>
+    <string name="vr_depth_source_flat">테스트 패턴: 평면</string>
+    <string name="vr_depth_source_ramp">테스트 패턴: 가로 그라데이션</string>
+    <string name="vr_depth_source_blob">테스트 패턴: 가운데 얼룩</string>
+    <string name="vr_depth_source_eyetest">테스트 패턴: 눈 배정</string>
+    <string name="vr_depth_source_shifttest">테스트 패턴: 이동량 측정</string>
+    <string name="vr_env_res_low">낮음</string>
+    <string name="vr_env_res_standard">표준</string>
+    <string name="vr_env_res_high">높음</string>
+    <string name="vr_env_res_ultra">Ultra (실험적)</string>
+    <string name="vr_sharpening_off">끔</string>
+    <string name="vr_sharpening_normal">보통</string>
+    <string name="vr_sharpening_quality">고품질</string>
+    <string name="vr_supersampling_off">끔</string>
+    <string name="vr_supersampling_normal">보통</string>
+    <string name="vr_supersampling_quality">고품질</string>
+    <string name="vr_file_log_off">끔</string>
+    <string name="vr_file_log_basic">경고 및 오류</string>
+    <string name="vr_file_log_verbose">상세</string>
+</resources>

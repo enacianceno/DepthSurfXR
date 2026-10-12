@@ -1,0 +1,39 @@
+# Deploys worker.js with `npx wrangler deploy` from this folder. README.md has
+# the steps around it.
+name = "moonlight-xr-reports"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Where the mail comes from and goes to. Until a sending domain is verified
+# with Resend, the from address has to be onboarding@resend.dev and the to
+# address has to be the one the Resend account was made with.
+[vars]
+RESEND_FROM = "onboarding@resend.dev"
+RESEND_TO = "hello@seangilleece.com"
+
+# Two secrets, set with `npx wrangler secret put <NAME>` so neither sits in
+# this file:
+#   RESEND_API_KEY  from the Resend dashboard, API Keys
+#   REPORT_TOKEN    a long random string, the same one that goes in the app's
+#                   keystore.properties as reportToken
+
+# Recommended: a KV namespace for the count of reports each sender has had
+# taken today. Without it the count lives in each isolate's memory, which is
+# best effort only, and the rate limiting rule in README.md is the real limit.
+# KV's free tier stops rather than bills too. Create the namespace with
+#   npx wrangler kv namespace create LIMITS
+# and put the id it prints here.
+# [[kv_namespaces]]
+# binding = "LIMITS"
+# id = "<the id wrangler printed>"
+
+# The rate limiting rule in README.md only applies to a hostname in one of the
+# account's zones, never to workers.dev, so with the rule the Worker answers
+# on a custom domain as well.
+# routes = [{ pattern = "reports.example.com", custom_domain = true }]
+
+# Optional: also keep every report in an R2 bucket. R2 is metered rather than
+# capped, which is why this is off. Create the bucket first if turning it on.
+# [[r2_buckets]]
+# binding = "REPORTS"
+# bucket_name = "moonlight-xr-reports"
