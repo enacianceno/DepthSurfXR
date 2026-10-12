@@ -75,6 +75,13 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
     private WebChromeClient.CustomViewCallback customCallback;
     private Button favButton;
     private Button restoreButton;
+    private Button incognitoButton;
+    private String stockUa;
+    private String desktopUaString;
+    private String uaFamily = UaPolicy.DESKTOP;
+    private String uaReloadUrl;
+    private ViewGroup frameRoot;
+    private LinearLayout submenuBar;
     private boolean incognito;
     private final java.util.List<String> historyUrls = new java.util.ArrayList<>();
     private Favorites favorites;
@@ -218,6 +225,24 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         rootView.addView(toolbar, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, barPx));
 
+        submenuBar = new LinearLayout(ctx);
+        submenuBar.setOrientation(LinearLayout.HORIZONTAL);
+        submenuBar.setBackgroundColor(0xFF171B22);
+        submenuBar.setPadding(padPx, padPx, padPx, padPx);
+        submenuBar.setVisibility(View.GONE);
+        submenuBar.addView(pillButton(ctx, "Favoritos", density,
+                v -> showFavorites()));
+        submenuBar.addView(pillButton(ctx, "Historial", density,
+                v -> showHistory()));
+        incognitoButton = pillButton(ctx, "Incognito", density,
+                v -> setIncognito(!incognito));
+        submenuBar.addView(incognitoButton);
+        submenuBar.addView(pillButton(ctx, "Pegar e ir", density,
+                v -> pasteAndGo()));
+        rootView.addView(submenuBar, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
         webView = new WebView(ctx);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
@@ -226,12 +251,32 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         webView.getSettings().setUseWideViewPort(true);
         // Large sites restrict the stock "; wv" WebView token (TikTok serves
         // a degraded wall to it): present as plain Chrome instead.
-        webView.getSettings().setUserAgentString(BrowserUa.desktopChrome(
-                webView.getSettings().getUserAgentString()));
+        stockUa = BrowserUa.stripWebViewToken(
+                webView.getSettings().getUserAgentString());
+        desktopUaString = BrowserUa.desktopChrome(
+                webView.getSettings().getUserAgentString());
+        webView.getSettings().setUserAgentString(desktopUaString);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.getSettings().setSupportMultipleWindows(true);
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
         webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url,
+                                      android.graphics.Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                String fam = UaPolicy.familyFor(url);
+                if (!fam.equals(uaFamily)) {
+                    uaFamily = fam;
+                    view.getSettings().setUserAgentString(
+                            UaPolicy.GOOGLE.equals(fam) ? stockUa : desktopUaString);
+                    LimeLog.info("BrowserDiag ua family=" + fam);
+                    if (url != null && !url.equals(uaReloadUrl)) {
+                        uaReloadUrl = url;
+                        view.reload();
+                    }
+                }
+            }
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -424,7 +469,7 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         rootView.addView(webView, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
-        android.widget.FrameLayout frameRoot = new android.widget.FrameLayout(ctx);
+        frameRoot = new android.widget.FrameLayout(ctx);
         frameRoot.addView(rootView, new android.widget.FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
@@ -517,33 +562,67 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         if (toolbar != null) {
             toolbar.setVisibility(max ? View.GONE : View.VISIBLE);
         }
+        if (submenuBar != null && max) {
+            submenuBar.setVisibility(View.GONE);
+        }
         if (restoreButton != null) {
             restoreButton.setVisibility(max ? View.VISIBLE : View.GONE);
         }
+        // The WebView does not always repaint after the resize this
+        // causes on the VirtualDisplay: force a redraw, twice.
+        if (uiHandler != null) {
+            uiHandler.postDelayed(() -> {
+                if (rootView != null) rootView.requestLayout();
+                if (webView != null) {
+                    webView.invalidate();
+                    webView.requestFocus();
+                }
+            }, 150);
+        }
     }
 
+    // In-layout panel, NOT a PopupMenu: popup windows live outside the
+    // Presentation hierarchy and never receive the XR ray clicks.
     private void showOverflowMenu(View anchor) {
-        android.widget.PopupMenu menu = new android.widget.PopupMenu(
-                anchor.getContext(), anchor);
-        menu.getMenu().add(0, 1, 0, "Favoritos");
-        menu.getMenu().add(0, 2, 0, "Historial");
-        menu.getMenu().add(0, 3, 0, incognito
-                ? "Salir de incognito" : "Modo incognito");
-        menu.getMenu().add(0, 4, 0, "Pegar e ir");
-        menu.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case 1: showFavorites(); return true;
-                case 2: showHistory(); return true;
-                case 3: setIncognito(!incognito); return true;
-                case 4: pasteAndGo(); return true;
-                default: return false;
-            }
+        if (submenuBar == null) return;
+        submenuBar.setVisibility(submenuBar.getVisibility() == View.VISIBLE
+                ? View.GONE : View.VISIBLE);
+    }
+
+    private Button pillButton(Context ctx, String label, float density,
+                              View.OnClickListener action) {
+        Button b = new Button(ctx);
+        b.setText(label);
+        b.setTextSize(15);
+        b.setTextColor(0xFFF2F4F7);
+        b.setMinWidth(0);
+        b.setMinimumWidth(0);
+        android.graphics.drawable.GradientDrawable d =
+                new android.graphics.drawable.GradientDrawable();
+        d.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+        d.setCornerRadius(18 * density);
+        d.setColor(0xFF2A3038);
+        b.setBackground(d);
+        int pad = Math.round(14 * density);
+        b.setPadding(pad, Math.round(8 * density), pad, Math.round(8 * density));
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp.leftMargin = Math.round(4 * density);
+        lp.rightMargin = Math.round(4 * density);
+        b.setLayoutParams(lp);
+        b.setOnClickListener(v -> {
+            submenuBar.setVisibility(View.GONE);
+            action.onClick(v);
         });
-        menu.show();
+        return b;
     }
 
     private void setIncognito(boolean on) {
         incognito = on;
+        if (incognitoButton != null) {
+            incognitoButton.setText(on ? "Salir de incognito" : "Incognito");
+        }
         LimeLog.info("BrowserDiag incognito=" + on);
         if (on) {
             CookieManager.getInstance().removeAllCookies(null);
@@ -921,7 +1000,10 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
     private void dispatch(int action, TouchCmd cmd) {
         long now = SystemClock.uptimeMillis();
         MotionEvent event = MotionEvent.obtain(downTimeMs, now, action, cmd.x, cmd.y, 0);
-        rootView.dispatchTouchEvent(event);
+        // frameRoot, not rootView: the floating restore button lives
+        // there and must receive ray clicks while maximized.
+        ViewGroup target = frameRoot != null ? frameRoot : rootView;
+        target.dispatchTouchEvent(event);
         event.recycle();
     }
 
