@@ -15,3 +15,5 @@ socket RTMP (handshake + FLV tags) hacia el ingest de TikTok.
 Bloqueos externos: la cuenta necesita acceso LIVE y la clave de
 transmision la pone el usuario en la app (nunca en logs ni repo).
 Sin clave/acceso no hay prueba de emision posible.
+
+ACTUALIZACION decodificacion real (ffmpeg): rectest final Duration 12.08s, H.264 High yuv420p 854x480 11.92fps, 144 frames pts 0->12.0 (~82ms, suave), AAC Peak -15.0dB RMS -34.4dB (audio NO silencioso, audioPeak=5878). Frames extraidos muestran Google real y la barra nueva. La ruta buffer-YUV se descarto (formato flexible sin salida); quedo Surface + rebase de pts en muxer.

@@ -24,6 +24,9 @@ public final class StreamRecorder {
     private static final int VBR = 2_500_000, ABR = 128_000, SR = 44100;
     private final View source;
     private volatile boolean running;
+    private volatile int audioPeak;
+    private volatile boolean queueLogged;
+    private final long[] basePts = {-1, -1, -1, -1};
 
     public StreamRecorder(View source) { this.source = source; }
 
@@ -109,7 +112,8 @@ public final class StreamRecorder {
             drainEos(audio, aInfo, muxer, aTrack);
             muxer.stop();
             LimeLog.info("BrowserDiag REC done file=" + out.getName()
-                    + " bytes=" + out.length() + " frames~" + frames);
+                    + " bytes=" + out.length() + " frames~" + frames
+                    + " audioPeak=" + audioPeak);
         } catch (Exception e) {
             LimeLog.warning("BrowserDiag REC fail " + e);
         } finally {
@@ -135,6 +139,10 @@ public final class StreamRecorder {
             byte[] pcm = new byte[2048];
             int read = mic.read(pcm, 0, pcm.length);
             if (read <= 0) return;
+            for (int i = 0; i + 1 < read; i += 2) {
+                int s = Math.abs((pcm[i] & 255) | (pcm[i + 1] << 8));
+                if (s > audioPeak) audioPeak = s;
+            }
             int idx = audio.dequeueInputBuffer(0);
             if (idx < 0) return;
             ByteBuffer buf = audio.getInputBuffer(idx);
@@ -146,6 +154,15 @@ public final class StreamRecorder {
     }
 
     private void drawFrame(Surface input, Bitmap frame) {
+        drawView(frame);
+        try {
+            Canvas sc = input.lockCanvas(null);
+            sc.drawBitmap(frame, null, new Rect(0, 0, W, H), null);
+            input.unlockCanvasAndPost(sc);
+        } catch (Exception ignored) {}
+    }
+
+    private void drawView(Bitmap frame) {
         try {
             source.post(() -> {
                 try {
@@ -155,11 +172,52 @@ public final class StreamRecorder {
                     source.draw(c);
                 } catch (Exception ignored) {}
             });
-            Thread.sleep(10);
-            Canvas sc = input.lockCanvas(null);
-            sc.drawBitmap(frame, null, new Rect(0, 0, W, H), null);
-            input.unlockCanvasAndPost(sc);
+            Thread.sleep(12);
         } catch (Exception ignored) {}
+    }
+
+    private final int[] argb = new int[W * H];
+    private byte[] yuv = new byte[W * H * 3 / 2];
+    private int encStride = W, encSlice = H;
+
+    private void queueVideo(MediaCodec video, Bitmap frame, long t0) {
+        try {
+            int idx = video.dequeueInputBuffer(0);
+            if (idx < 0) return;
+            frame.getPixels(argb, 0, W, 0, 0, W, H);
+            android.media.Image img = video.getInputImage(idx);
+            if (img == null) return;
+            android.media.Image.Plane[] planes = img.getPlanes();
+            for (int y = 0; y < H; y++) {
+                for (int x = 0; x < W; x++) {
+                    int px = argb[y * W + x];
+                    int r = (px >> 16) & 255, g = (px >> 8) & 255, b = px & 255;
+                    put(planes[0], x, y,
+                            clamp(((66 * r + 129 * g + 25 * b + 128) >> 8) + 16));
+                    if ((y & 1) == 0 && (x & 1) == 0) {
+                        put(planes[1], x / 2, y / 2,
+                                clamp(((-38 * r - 74 * g + 112 * b + 128) >> 8) + 128));
+                        put(planes[2], x / 2, y / 2,
+                                clamp(((112 * r - 94 * g - 18 * b + 128) >> 8) + 128));
+                    }
+                }
+            }
+            video.queueInputBuffer(idx, 0, 0,
+                    (System.nanoTime() - t0) / 1000, 0);
+        } catch (Exception e) {
+            if (!queueLogged) {
+                queueLogged = true;
+                LimeLog.warning("BrowserDiag REC queueVideo fail " + e);
+            }
+        }
+    }
+
+    private static int clamp(int v) { return v < 0 ? 0 : Math.min(255, v); }
+
+    private static void put(android.media.Image.Plane plane, int x, int y, int v) {
+        ByteBuffer b = plane.getBuffer();
+        int pos = y * plane.getRowStride() + x * plane.getPixelStride();
+        if (pos >= 0 && pos < b.capacity()) b.put(pos, (byte) v);
     }
 
     private void drain(MediaCodec codec, MediaCodec.BufferInfo info,
@@ -184,10 +242,15 @@ public final class StreamRecorder {
     private void write(MediaCodec codec, MediaCodec.BufferInfo info,
                        MediaMuxer muxer, int track, int idx) {
         ByteBuffer buf = codec.getOutputBuffer(idx);
-        if (buf != null && info.size > 0) {
+        if (buf != null && info.size > 0
+                && (info.flags & MediaCodec.BUFFER_FLAG_CODEC_CONFIG) == 0) {
+            if (basePts[track] < 0) basePts[track] = info.presentationTimeUs;
+            MediaCodec.BufferInfo adj = new MediaCodec.BufferInfo();
+            adj.set(info.offset, info.size,
+                    Math.max(0, info.presentationTimeUs - basePts[track]), info.flags);
             buf.position(info.offset);
             buf.limit(info.offset + info.size);
-            try { muxer.writeSampleData(track, buf, info); }
+            try { muxer.writeSampleData(track, buf, adj); }
             catch (Exception ignored) {}
         }
         codec.releaseOutputBuffer(idx, false);

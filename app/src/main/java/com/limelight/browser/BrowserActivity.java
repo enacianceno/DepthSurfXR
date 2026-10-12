@@ -74,6 +74,9 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
     private View customView;
     private WebChromeClient.CustomViewCallback customCallback;
     private Button favButton;
+    private Button restoreButton;
+    private boolean incognito;
+    private final java.util.List<String> historyUrls = new java.util.ArrayList<>();
     private Favorites favorites;
     private VirtualDisplay virtualDisplay;
     private Presentation presentation;
@@ -97,6 +100,12 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         uiHandler = new Handler(Looper.getMainLooper());
         favorites = Favorites.fromStorage(
                 getPreferences(MODE_PRIVATE).getString("favs", ""));
+        String hist = getPreferences(MODE_PRIVATE).getString("hist", "");
+        if (hist != null && !hist.isEmpty()) {
+            for (String u : hist.split("\n")) {
+                if (!u.isEmpty()) historyUrls.add(u);
+            }
+        }
 
         prefs = PreferenceConfiguration.readPreferences(this);
         webW = Aspect.LAND_W;
@@ -134,11 +143,12 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
 
         toolbar = new LinearLayout(ctx);
         toolbar.setOrientation(LinearLayout.HORIZONTAL);
-        int barPx = Math.round(52 * density);
+        toolbar.setBackgroundColor(0xFF171B22);
+        int barPx = Math.round(56 * density);
         int padPx = Math.round(6 * density);
         toolbar.setPadding(padPx, padPx, padPx, padPx);
 
-        Button back = navButton(ctx, "<");
+        Button back = chromeButton(ctx, "\u2190", density);
         back.setOnClickListener(v -> {
             if (customView != null) {
                 exitFullscreen();
@@ -146,15 +156,15 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
                 webView.goBack();
             }
         });
-        Button fwd = navButton(ctx, ">");
+        Button fwd = chromeButton(ctx, "\u2192", density);
         fwd.setOnClickListener(v -> {
             if (webView.canGoForward()) {
                 webView.goForward();
             }
         });
-        Button reload = navButton(ctx, "R");
+        Button reload = chromeButton(ctx, "\u21BB", density);
         reload.setOnClickListener(v -> webView.reload());
-        Button home = navButton(ctx, "H");
+        Button home = chromeButton(ctx, "\u2302", density);
         home.setOnClickListener(v -> {
             webView.loadUrl(HOME_URL);
             webView.requestFocus();
@@ -166,6 +176,14 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         urlField.setTextColor(0xFFFFFFFF);
         urlField.setHintTextColor(0xFF8892A8);
         urlField.setHint("URL o busqueda");
+        android.graphics.drawable.GradientDrawable urlBg =
+                new android.graphics.drawable.GradientDrawable();
+        urlBg.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+        urlBg.setCornerRadius(22 * density);
+        urlBg.setColor(0xFF232830);
+        urlField.setBackground(urlBg);
+        urlField.setPadding(Math.round(16 * density), 0,
+                Math.round(16 * density), 0);
         urlField.setText(HOME_URL);
         urlField.setShowSoftInputOnFocus(false);
         urlField.setOnKeyListener((v, code, event) -> {
@@ -182,27 +200,21 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         urlLp.leftMargin = padPx;
         urlLp.rightMargin = padPx;
 
-        Button clear = navButton(ctx, "X");
-        clear.setOnClickListener(v -> urlField.setText(""));
-        Button paste = navButton(ctx, "P");
-        paste.setOnClickListener(v -> pasteAndGo());
-        Button go = navButton(ctx, "Ir");
-        go.setOnClickListener(v -> goFromBar());
-        favButton = navButton(ctx, "*");
+        favButton = chromeButton(ctx, "\u2605", density);
         favButton.setOnClickListener(v -> saveFavorite());
-        Button favList = navButton(ctx, "F");
-        favList.setOnClickListener(v -> showFavorites());
+        Button menuBtn = chromeButton(ctx, "\u22EE", density);
+        menuBtn.setOnClickListener(v -> showOverflowMenu(menuBtn));
+        Button maxBtn = chromeButton(ctx, "\u26F6", density);
+        maxBtn.setOnClickListener(v -> setMaximized(true));
 
         toolbar.addView(back);
-        toolbar.addView(fwd);
         toolbar.addView(reload);
-        toolbar.addView(home);
+        toolbar.addView(fwd);
         toolbar.addView(urlField, urlLp);
-        toolbar.addView(clear);
-        toolbar.addView(paste);
-        toolbar.addView(go);
         toolbar.addView(favButton);
-        toolbar.addView(favList);
+        toolbar.addView(home);
+        toolbar.addView(menuBtn);
+        toolbar.addView(maxBtn);
         rootView.addView(toolbar, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, barPx));
 
@@ -223,6 +235,7 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                recordHistory(url);
                 if (urlField != null && !urlField.hasFocus() && url != null
                         && !url.startsWith("fav:") && !url.startsWith("about:")) {
                     urlField.setText(url);
@@ -411,7 +424,22 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         rootView.addView(webView, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
-        presentation.setContentView(rootView,
+        android.widget.FrameLayout frameRoot = new android.widget.FrameLayout(ctx);
+        frameRoot.addView(rootView, new android.widget.FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+        restoreButton = chromeButton(ctx, "\u2715", density);
+        restoreButton.setAlpha(0.75f);
+        restoreButton.setVisibility(View.GONE);
+        restoreButton.setOnClickListener(v -> setMaximized(false));
+        android.widget.FrameLayout.LayoutParams restoreLp =
+                new android.widget.FrameLayout.LayoutParams(
+                        Math.round(44 * density), Math.round(44 * density),
+                        android.view.Gravity.TOP | android.view.Gravity.END);
+        restoreLp.topMargin = Math.round(8 * density);
+        restoreLp.rightMargin = Math.round(8 * density);
+        frameRoot.addView(restoreButton, restoreLp);
+        presentation.setContentView(frameRoot,
                 new ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT));
@@ -462,6 +490,105 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
             urlField.setText(target);
             webView.loadUrl(target);
         }
+    }
+
+    private Button chromeButton(Context ctx, String glyph, float density) {
+        Button b = new Button(ctx);
+        b.setText(glyph);
+        b.setTextSize(19);
+        b.setTextColor(0xFFF2F4F7);
+        b.setPadding(0, 0, 0, 0);
+        b.setMinWidth(0);
+        b.setMinimumWidth(0);
+        android.graphics.drawable.GradientDrawable d =
+                new android.graphics.drawable.GradientDrawable();
+        d.setShape(android.graphics.drawable.GradientDrawable.OVAL);
+        d.setColor(0xFF2A3038);
+        b.setBackground(d);
+        int s = Math.round(44 * density);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(s, s);
+        lp.leftMargin = Math.round(3 * density);
+        lp.rightMargin = Math.round(3 * density);
+        b.setLayoutParams(lp);
+        return b;
+    }
+
+    private void setMaximized(boolean max) {
+        if (toolbar != null) {
+            toolbar.setVisibility(max ? View.GONE : View.VISIBLE);
+        }
+        if (restoreButton != null) {
+            restoreButton.setVisibility(max ? View.VISIBLE : View.GONE);
+        }
+    }
+
+    private void showOverflowMenu(View anchor) {
+        android.widget.PopupMenu menu = new android.widget.PopupMenu(
+                anchor.getContext(), anchor);
+        menu.getMenu().add(0, 1, 0, "Favoritos");
+        menu.getMenu().add(0, 2, 0, "Historial");
+        menu.getMenu().add(0, 3, 0, incognito
+                ? "Salir de incognito" : "Modo incognito");
+        menu.getMenu().add(0, 4, 0, "Pegar e ir");
+        menu.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case 1: showFavorites(); return true;
+                case 2: showHistory(); return true;
+                case 3: setIncognito(!incognito); return true;
+                case 4: pasteAndGo(); return true;
+                default: return false;
+            }
+        });
+        menu.show();
+    }
+
+    private void setIncognito(boolean on) {
+        incognito = on;
+        LimeLog.info("BrowserDiag incognito=" + on);
+        if (on) {
+            CookieManager.getInstance().removeAllCookies(null);
+            if (webView != null) {
+                webView.clearCache(true);
+                webView.clearHistory();
+                webView.loadUrl("about:blank");
+            }
+        }
+    }
+
+    private void recordHistory(String url) {
+        if (incognito || url == null || !url.startsWith("http")) return;
+        if (historyUrls.isEmpty() || !historyUrls.get(historyUrls.size() - 1).equals(url)) {
+            historyUrls.add(url);
+            while (historyUrls.size() > 50) historyUrls.remove(0);
+            StringBuilder sb = new StringBuilder();
+            for (String u : historyUrls) sb.append(u).append("\n");
+            getPreferences(MODE_PRIVATE).edit()
+                    .putString("hist", sb.toString()).apply();
+        }
+    }
+
+    private void showHistory() {
+        if (webView == null) return;
+        StringBuilder sb = new StringBuilder(
+                "<html><head><meta charset=\"utf-8\"><style>"
+                + "body{background:#101828;color:#fff;font-family:sans-serif;padding:24px}"
+                + "a{color:#35e0ff;font-size:20px}li{margin:14px 0}</style>"
+                + "</head><body><h2>Historial</h2>");
+        if (historyUrls.isEmpty()) {
+            sb.append("<p>Sin historial.</p>");
+        } else {
+            sb.append("<ul>");
+            for (int i = historyUrls.size() - 1; i >= 0; i--) {
+                String u = historyUrls.get(i);
+                sb.append("<li><a href=\"").append(Favorites.escapeHtml(u))
+                        .append("\">").append(Favorites.escapeHtml(u))
+                        .append("</a></li>");
+            }
+            sb.append("</ul>");
+        }
+        sb.append("</body></html>");
+        webView.loadDataWithBaseURL("hist://local", sb.toString(),
+                "text/html", "UTF-8", null);
     }
 
     private static Button navButton(Context ctx, String label) {
@@ -708,7 +835,12 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
     @Override
     public void onVrGamepadState(int buttons, int leftTrigger, int rightTrigger,
                                  int leftX, int leftY, int rightX, int rightY) {
-        // No gamepad in a browser.
+        int dy = StickScroll.deltaYPx(rightY != 0 ? rightY : leftY);
+        if (dy != 0) {
+            post(() -> {
+                if (webView != null) webView.scrollBy(0, dy);
+            });
+        }
     }
 
     @Override
