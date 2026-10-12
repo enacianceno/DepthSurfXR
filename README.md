@@ -1,12 +1,5 @@
 <p align="center">
   <img src="depthsurf-logo.jpg" height="220" alt="DepthSurfXR logo"><br>
-  <a href="https://ko-fi.com/moonlightxr">
-    <img src="https://img.shields.io/badge/ko--fi-support-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" height="35" alt="Ko-fi">
-  </a>
-  <br>
-  <a href="https://ko-fi.com/moonlightxr">
-    <strong>Support on Ko-fi</strong>
-  </a>
 </p>
 
 # DepthSurfXR
@@ -473,3 +466,9 @@ You can follow development on our [Discord server](https://moonlight-stream.org/
 
 Moonlight is the work of students at [Case Western](http://case.edu) and was
 started as a project at [MHacks](http://mhacks.org).
+
+## Apoya DepthSurfXR
+
+Si DepthSurfXR te sirve y quieres apoyar su desarrollo:
+
+[Apoyar con Mercado Pago](https://link.mercadopago.com.mx/xwaquest)
