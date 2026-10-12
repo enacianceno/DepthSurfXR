@@ -911,13 +911,57 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         // No gamepad in a browser.
     }
 
+    private volatile int stickSteps;
+    private boolean stickRepeating;
+    private boolean stickLogged;
+    private final Runnable stickRepeat = new Runnable() {
+        @Override public void run() {
+            int s = stickSteps;
+            if (s == 0 || webView == null) {
+                stickRepeating = false;
+                return;
+            }
+            wheelAtPointer(s, s * 90);
+            uiHandler.postDelayed(this, 90);
+        }
+    };
+
+    private void wheelAtPointer(int steps, int fallbackPx) {
+        if (webView == null || rootView == null) return;
+        long now = SystemClock.uptimeMillis();
+        MotionEvent.PointerProperties[] props = new MotionEvent.PointerProperties[1];
+        props[0] = new MotionEvent.PointerProperties();
+        props[0].id = 0;
+        props[0].toolType = MotionEvent.TOOL_TYPE_MOUSE;
+        MotionEvent.PointerCoords[] coords = new MotionEvent.PointerCoords[1];
+        coords[0] = new MotionEvent.PointerCoords();
+        coords[0].x = lastU * viewW();
+        coords[0].y = lastV * viewH();
+        coords[0].setAxisValue(MotionEvent.AXIS_VSCROLL, steps);
+        MotionEvent event = MotionEvent.obtain(downTimeMs, now,
+                MotionEvent.ACTION_SCROLL, 1, props, coords, 0, 0, 1f, 1f,
+                0, 0, android.view.InputDevice.SOURCE_MOUSE, 0);
+        boolean handled = rootView.dispatchGenericMotionEvent(event);
+        event.recycle();
+        if (!stickLogged) {
+            stickLogged = true;
+            LimeLog.info("BrowserDiag stick wheel steps=" + steps + " handled=" + handled);
+        }
+        if (!handled) {
+            webView.scrollBy(0, fallbackPx);
+        }
+    }
+
     @Override
     public void onVrGamepadState(int buttons, int leftTrigger, int rightTrigger,
                                  int leftX, int leftY, int rightX, int rightY) {
-        int dy = StickScroll.deltaYPx(rightY != 0 ? rightY : leftY);
-        if (dy != 0) {
+        stickSteps = StickScroll.wheelSteps(rightY != 0 ? rightY : leftY);
+        if (stickSteps != 0 && uiHandler != null) {
             post(() -> {
-                if (webView != null) webView.scrollBy(0, dy);
+                if (!stickRepeating) {
+                    stickRepeating = true;
+                    uiHandler.post(stickRepeat);
+                }
             });
         }
     }
@@ -981,7 +1025,11 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
             return;
         }
         if (webView != null) {
-            webView.scrollBy(0, WebViewInputMapper.scrollPixels(clicks));
+            // Native already winds the thumbstick into these clicks.
+            // Feed pages (TikTok) only answer real wheel events, not
+            // scrollBy, so dispatch a wheel at the ray point first.
+            int clamped = Math.max(-8, Math.min(8, clicks));
+            wheelAtPointer(clamped, WebViewInputMapper.scrollPixels(clicks));
         }
     }
 
