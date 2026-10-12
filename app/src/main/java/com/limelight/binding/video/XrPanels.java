@@ -268,7 +268,8 @@ final class XrPanels {
 
     // The launch splash: the logo over the app's name, a product name and so
     // never translated, Moonlight in white and XR in lavender
-    private static final String SPLASH_NAME = "Moonlight";
+    private static final String SPLASH_NAME = "DepthSurf";
+    private static final String SPLASH_SUB = "Fork de Moonlight XR";
     private static final String SPLASH_NAME_XR = "XR";
     // The logo's colours: a navy ground with a purple glow, the disc a light
     // slate, and the two colours of the name
@@ -281,7 +282,7 @@ final class XrPanels {
     // it and the name's size, the three centred together with the name's
     // descender left out. The space between Moonlight and XR is a fraction of
     // the name's size.
-    private static final float SPLASH_DISC_R = 0.32f;
+    private static final float SPLASH_DISC_R = 0.26f;
     private static final float SPLASH_GAP = 0.082f;
     private static final float SPLASH_NAME_SIZE = 0.18f;
     private static final float SPLASH_NAME_SPACE = 0.28f;
@@ -2545,11 +2546,13 @@ final class XrPanels {
         ByteBuffer pixels = ByteBuffer.allocateDirect(SPLASH_TEX_W * SPLASH_TEX_H * 4);
         Bitmap row = Bitmap.createBitmap(SPLASH_TEX_W, SPLASH_ROW_H, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(row);
-        Logo.draw(canvas, SPLASH_TEX_W * 0.5f, discY, radius, 0, SPLASH_DISC);
+        Bitmap logoBmp = loadIcon("depthsurf_logo.jpg", Math.round(2.0f * radius));
+        if (logoBmp != null) { canvas.drawBitmap(logoBmp, SPLASH_TEX_W * 0.5f - radius, discY - radius, new Paint()); logoBmp.recycle(); } else { Logo.draw(canvas, SPLASH_TEX_W * 0.5f, discY, radius, 0, SPLASH_DISC); }
         name.setColor(SPLASH_WHITE);
         canvas.drawText(SPLASH_NAME, left, baseline, name);
         name.setColor(SPLASH_LAVENDER);
         canvas.drawText(SPLASH_NAME_XR, left + nameW + space, baseline, name);
+        Paint subPaint = new Paint(Paint.ANTI_ALIAS_FLAG); subPaint.setTextAlign(Paint.Align.CENTER); subPaint.setColor(0x99F8FAFC); subPaint.setTextSize(0.075f * SPLASH_ROW_H); canvas.drawText(SPLASH_SUB, SPLASH_TEX_W * 0.5f, baseline + 0.11f * SPLASH_ROW_H, subPaint);
         for (int open = 0; open < SPLASH_ROWS; open++) {
             if (open > 0) {
                 Logo.cutWedge(canvas, SPLASH_TEX_W * 0.5f, discY, radius, open - 1);

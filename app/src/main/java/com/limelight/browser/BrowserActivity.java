@@ -110,6 +110,8 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
             webH = px[1];
         }
         vrKeyboard = new VrKeyboard(new WebSink());
+        requestPermissions(new String[]{android.Manifest.permission.CAMERA,
+                android.Manifest.permission.RECORD_AUDIO}, 7301);
         if (!startXrSession(webW, webH)) {
             fatal("XR session failed to start");
             return;
@@ -269,6 +271,26 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
             }
         });
         webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onPermissionRequest(
+                    android.webkit.PermissionRequest request) {
+                java.util.List<String> granted = new java.util.ArrayList<>();
+                for (String r : request.getResources()) {
+                    boolean ok = false;
+                    if (android.webkit.PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(r)) {
+                        ok = checkSelfPermission(android.Manifest.permission.CAMERA)
+                                == android.content.pm.PackageManager.PERMISSION_GRANTED;
+                    } else if (android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(r)) {
+                        ok = checkSelfPermission(android.Manifest.permission.RECORD_AUDIO)
+                                == android.content.pm.PackageManager.PERMISSION_GRANTED;
+                    }
+                    LimeLog.info("BrowserDiag perm resource=" + r + " granted=" + ok);
+                    if (ok) granted.add(r);
+                }
+                if (granted.isEmpty()) request.deny();
+                else request.grant(granted.toArray(new String[0]));
+            }
+
             @Override
             public void onShowCustomView(View view, CustomViewCallback callback) {
                 if (customView != null) {
