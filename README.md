@@ -467,8 +467,8 @@ You can follow development on our [Discord server](https://moonlight-stream.org/
 Moonlight is the work of students at [Case Western](http://case.edu) and was
 started as a project at [MHacks](http://mhacks.org).
 
-## Apoya DepthSurfXR
+## Apoya el proyecto
 
-Si DepthSurfXR te sirve y quieres apoyar su desarrollo:
+**Apoya a DepthSurf XR:** [Mercado Pago](https://link.mercadopago.com.mx/xwaquest)
 
-[Apoyar con Mercado Pago](https://link.mercadopago.com.mx/xwaquest)
+**Apoya a Moonlight XR (proyecto base):** [Ko-fi de Moonlight XR](https://ko-fi.com/moonlightxr)
