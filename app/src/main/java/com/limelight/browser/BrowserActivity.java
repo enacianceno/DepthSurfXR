@@ -321,9 +321,8 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
 
             @Override
             public boolean onConsoleMessage(ConsoleMessage message) {
-                if (message != null
-                        && message.messageLevel() == ConsoleMessage.MessageLevel.ERROR) {
-                    LimeLog.warning("BrowserDiag console level=ERROR msg="
+                if (message != null) {
+                    LimeLog.warning("BrowserDiag console level=" + message.messageLevel() + " msg="
                             + String.valueOf(message.message()).replaceAll("[\\r\\n]+", " ")
                             + " @" + WebEngineDiagnostics.sanitizeUrl(message.sourceId())
                             + ":" + message.lineNumber());
@@ -425,7 +424,40 @@ public class BrowserActivity extends Activity implements XrRenderer.InputListene
         } catch (Exception e) {
             LimeLog.warning("BrowserDiag provider=unavailable");
         }
-        webView.loadUrl(HOME_URL);
+        String startUrl = HOME_URL;
+        String extra = getIntent() == null ? null : getIntent().getStringExtra("dsurl");
+        android.net.Uri data = getIntent() == null ? null : getIntent().getData();
+        if (extra != null && extra.startsWith("http")) startUrl = extra;
+        else if (data != null && String.valueOf(data).startsWith("http")) startUrl = String.valueOf(data);
+        urlField.setText(startUrl);
+        if ("gumtest".equals(extra)) {
+            webView.loadDataWithBaseURL("https://example.com/",
+                    "<html><body><script>"
+                    + "console.log('GUMTEST start');"
+                    + "navigator.mediaDevices.enumerateDevices().then(function(ds){"
+                    + "console.log('GUMTEST devices='+ds.map(function(d){return d.kind;}).join(','));"
+                    + "return navigator.mediaDevices.getUserMedia({audio:true});})"
+                    + ".then(function(s){console.log('GUMTEST AUDIO OK');s.getTracks().forEach(function(t){t.stop();});"
+                    + "return navigator.mediaDevices.getUserMedia({video:true});})"
+                    + ".then(function(s){console.log('GUMTEST VIDEO OK tracks='+s.getTracks().map(function(t){return t.kind+':'+t.readyState;}).join(','));})"
+                    + ".catch(function(e){console.log('GUMTEST FAIL '+e.name+': '+e.message);});"
+                    + "</script></body></html>", "text/html", "UTF-8", null);
+        } else {
+            webView.loadUrl(startUrl);
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String extra = intent == null ? null : intent.getStringExtra("dsurl");
+        android.net.Uri data = intent == null ? null : intent.getData();
+        String target = extra != null ? extra
+                : (data != null ? String.valueOf(data) : null);
+        if (target != null && target.startsWith("http") && webView != null) {
+            urlField.setText(target);
+            webView.loadUrl(target);
+        }
     }
 
     private static Button navButton(Context ctx, String label) {
